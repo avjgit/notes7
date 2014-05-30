@@ -6,14 +6,14 @@ using System.Web.Mvc;
 
 namespace mvc_music_store.Controllers
 {
-    public class HomeController : Controller
+    public class StoreController : Controller
     {
         //
-        // GET: /Home/
+        // GET: /Store/
 
-        public string Index()
+        public ActionResult Index()
         {
-            return "Hi there";
+            return View();
         }
 
     }
