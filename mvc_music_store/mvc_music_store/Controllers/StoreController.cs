@@ -16,14 +16,16 @@ namespace mvc_music_store.Controllers
             return "show'em all";
         }
 
-        public string Browse()
+        public string Browse(string genre)
         {
-            return "browsing";
+            string message = HttpUtility.HtmlEncode("browsing genre " + genre);
+            return message;
         }
 
-        public string Details()
+        public string Details(int id)
         {
-            return "details";
+            string message = HttpUtility.HtmlEncode("details for " + id);
+            return message;
         }
 
     }
