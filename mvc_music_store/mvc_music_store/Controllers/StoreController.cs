@@ -11,9 +11,19 @@ namespace mvc_music_store.Controllers
         //
         // GET: /Store/
 
-        public ActionResult Index()
+        public string Index()
         {
-            return View();
+            return "show'em all";
+        }
+
+        public string Browse()
+        {
+            return "browsing";
+        }
+
+        public string Details()
+        {
+            return "details";
         }
 
     }
