@@ -119,8 +119,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\Images\home-showcase.png" />
+    <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\placeholder.gif" />
     <Content Include="Global.asax" />
-    <Content Include="Styles\Site.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
