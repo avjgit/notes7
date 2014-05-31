@@ -12,9 +12,15 @@ namespace mvc_music_store.Controllers
         //
         // GET: /Store/
 
-        public string Index()
+        public ActionResult Index()
         {
-            return "show'em all";
+            var genres = new List<Genre>
+            {
+                new Genre {Name = "Classic"},
+                new Genre {Name = "Folk"},
+                new Genre {Name = "Rock"}
+            };
+            return View(genres);
         }
 
         //post parameters named “genre” will be automatically past
