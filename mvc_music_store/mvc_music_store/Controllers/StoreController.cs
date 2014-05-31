@@ -18,10 +18,11 @@ namespace mvc_music_store.Controllers
         }
 
         //post parameters named “genre” will be automatically past
-        public string Browse(string genre)
+        public ActionResult Browse(string genre)
         {
-            string message = HttpUtility.HtmlEncode("browsing genre " + genre);
-            return message;
+            //string message = HttpUtility.HtmlEncode("browsing genre " + genre);
+            var genreModel = new Genre { Name = genre };
+            return View(genreModel);
         }
         //HttpUtility.HtmlEncode utility to sanitize the user input. 
         //This prevents users from injecting Javascript into our View 
