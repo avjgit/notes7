@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using mvc_music_store.Models;
 
 namespace mvc_music_store.Controllers
 {
@@ -29,10 +30,11 @@ namespace mvc_music_store.Controllers
         // ASP.NET MVC’s default routing convention is 
         //to treat the segment of a URL after the action method name 
         //as a parameter named “ID”
-        public string Details(int id)
+        public ActionResult Details(int id)
         {
-            string message = HttpUtility.HtmlEncode("details for " + id);
-            return message;
+            //string message = HttpUtility.HtmlEncode("details for " + id);
+            var album = new Album { Title = "Album " + id };
+            return View(album);
         }
 
     }
