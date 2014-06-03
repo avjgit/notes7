@@ -23,7 +23,10 @@ namespace mvc_music_store.Controllers
         public ActionResult Browse(string genre)
         {
             //string message = HttpUtility.HtmlEncode("browsing genre " + genre);
-            var genreModel = new Genre { Name = genre };
+
+            // Single(lambda) to retrieve just single entity, with lamda as condition
+            // "Include" to add associated entities
+            var genreModel = storeDB.Genre.Include("Albums").Single(g => g.Name == genre);
             return View(genreModel);
         }
         //HttpUtility.HtmlEncode utility to sanitize the user input. 
