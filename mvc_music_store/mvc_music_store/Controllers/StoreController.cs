@@ -39,7 +39,7 @@ namespace mvc_music_store.Controllers
         public ActionResult Details(int id)
         {
             //string message = HttpUtility.HtmlEncode("details for " + id);
-            var album = new Album { Title = "Album " + id };
+            var album = storeDB.Albums.Find(id);
             return View(album);
         }
 
