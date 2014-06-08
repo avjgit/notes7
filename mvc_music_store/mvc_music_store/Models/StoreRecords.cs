@@ -10,5 +10,7 @@ namespace mvc_music_store.Models
     {
         public DbSet<Album> Albums { get; set; }
         public DbSet<Genre> Genre { get; set; }
+
+        public DbSet<Artist> Artists { get; set; }
     }
 }
