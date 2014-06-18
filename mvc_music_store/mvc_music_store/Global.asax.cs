@@ -1,9 +1,11 @@
-﻿using System;
+﻿using mvc_music_store.App_Start;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
+using System.Web.Optimization;
 using System.Web.Routing;
 
 namespace mvc_music_store
@@ -14,6 +16,7 @@ namespace mvc_music_store
     {
         protected void Application_Start()
         {
+      ModelBinders.Binders.DefaultBinder = new PerpetuumSoft.Knockout.KnockoutModelBinder();
             System.Data.Entity.Database.SetInitializer(
                 new mvc_music_store.Models.SampleData());
             AreaRegistration.RegisterAllAreas();
@@ -21,6 +24,7 @@ namespace mvc_music_store
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
     }
 }
