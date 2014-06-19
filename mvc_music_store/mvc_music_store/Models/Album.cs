@@ -32,7 +32,7 @@ namespace mvc_music_store.Models
         [StringLength(1024)]
         public string AlbumArtUrl { get; set; }
  
-        public Genre Genre { get; set; }
-        public Artist Artist { get; set; }
+        public virtual Genre Genre { get; set; }
+        public virtual Artist Artist { get; set; }
     }
 }
