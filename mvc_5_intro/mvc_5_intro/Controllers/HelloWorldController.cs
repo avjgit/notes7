@@ -10,9 +10,9 @@ namespace mvc_5_intro.Controllers
     {
         //
         // GET: /HelloWorld/
-        public string Index()
+        public ActionResult Index()
         {
-            return "this is default action";
+            return View();
         }
 
         public string Welcome(string name, int id = 1)
