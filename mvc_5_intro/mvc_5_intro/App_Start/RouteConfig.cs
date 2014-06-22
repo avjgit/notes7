@@ -15,7 +15,7 @@ namespace mvc_5_intro
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
+                url: "{controller}/{action}/{id}", // fills Id in just added http://localhost:62559/helloworld/welcome?name=aj
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
         }
