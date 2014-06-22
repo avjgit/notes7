@@ -17,7 +17,8 @@ namespace mvc_5_intro.Controllers
 
         public string Welcome(string name, int numtimes = 1)
         {
-            return "this is welcome";
+            // inline parameters: http://localhost:62559/helloworld/welcome?name=aj&numtimes=3
+            return HttpUtility.HtmlEncode("Hello " + name + ", numtimes is " + numtimes);
         }
 	}
 }
