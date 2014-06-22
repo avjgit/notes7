@@ -18,6 +18,12 @@ namespace mvc_5_intro
                 url: "{controller}/{action}/{id}", // fills Id in just added http://localhost:62559/helloworld/welcome?name=aj
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            //http://localhost:62559/helloworld/welcome/Mr.Anonymous/4
+            routes.MapRoute(
+                name: "Hello",
+                url: "{controller}/{action}/{name}/{id}"
+            );
         }
     }
 }
