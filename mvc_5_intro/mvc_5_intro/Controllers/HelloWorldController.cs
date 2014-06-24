@@ -15,11 +15,14 @@ namespace mvc_5_intro.Controllers
             return View();
         }
 
-        public string Welcome(string name, int id = 1)
+        public ActionResult Welcome(string name, int id = 1)
         {
             // inline parameters: http://localhost:62559/helloworld/welcome?name=aj&numtimes=3
             // with default ID parameter: http://localhost:62559/helloworld/welcome?name=aj
-            return HttpUtility.HtmlEncode("Hello " + name + ", id is " + id);
+            //return HttpUtility.HtmlEncode("Hello " + name + ", id is " + id);
+            ViewBag.Message = "Hello " + name;
+            ViewBag.NumTimes = id;
+            return View();
         }
 	}
 }
