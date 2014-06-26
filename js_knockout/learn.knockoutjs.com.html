@@ -63,6 +63,13 @@ function ReservationsViewModel() {
         new SeatReservation("Steve", self.availableMeals[0]),
         new SeatReservation("Bert", self.availableMeals[0])
     ]);
+
+    // now when you click "Reserve another seat", the UI updates to match.
+    // This is because seats is an observable array,
+    // so adding or removing items will trigger UI updates automatically.
+    self.addSeat = function(){
+        self.seats.push(new SeatReservation("", self.availableMeals[0]));
+    }
 }
 
 ko.applyBindings(new ReservationsViewModel());
@@ -81,3 +88,5 @@ ko.applyBindings(new ReservationsViewModel());
         </tr>
     </tbody>
 </table>
+
+<button data-bind="click: addSeat">Reserve another seat</button>
