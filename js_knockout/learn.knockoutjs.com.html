@@ -3,6 +3,11 @@
 function AppViewModel() {
     this.firstName = ko.observable("Bert");
     this.lastName = ko.observable("Bertington");
+
+    // computable
+    this.fullName = ko.computed(function() {
+        return this.firstName() + " " + this.lastName();
+    }, this);
 }
 
 // Activates knockout.js
@@ -15,3 +20,5 @@ ko.applyBindings(new AppViewModel());
 
 <p>new firstname: <input data-bind="value: firstName" /></p>
 <p>new lastname: <input data-bind="value: lastName" /></p>
+
+<p>full name: <strong data-bind="text: fullName"></strong></p>
