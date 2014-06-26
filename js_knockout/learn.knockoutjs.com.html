@@ -91,7 +91,7 @@ function ReservationsViewModel() {
 
 ko.applyBindings(new ReservationsViewModel());
 // VIEW
-<h2>Your seat reservations</h2>
+<h2>Your seat reservations (<span data-bind="text: seats().length"></span>)</h2>
 <table>
     <thead><tr>
         <th>Passenger name</th><th>Meal</th><th>Surcharge</th><th></th>
@@ -108,7 +108,7 @@ ko.applyBindings(new ReservationsViewModel());
     </tbody>
 </table>
 
-<button data-bind="click: addSeat">Reserve another seat</button>
+<button data-bind="click: addSeat, enable: seats().length < 2">Reserve another seat</button>
 
 <h3 data-bind="visible: totalSurcharge() > 0">
     Total surcharge: $<span data-bind="text: totalSurcharge().toFixed(2)"></span>
