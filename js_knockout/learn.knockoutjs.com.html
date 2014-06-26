@@ -1,4 +1,4 @@
-// //////////////////////////////////// 
+// ////////////////////////////////////
 // This is a simple *viewmodel* - JavaScript that defines the data and behavior of your UI
 function AppViewModel() {
     this.firstName = ko.observable("Bert");
@@ -8,11 +8,18 @@ function AppViewModel() {
     this.fullName = ko.computed(function() {
         return this.firstName() + " " + this.lastName();
     }, this);
+
+    //to read or write an observable's value, you call it as a function.
+    this.capitalizeLastName = function(){
+        var currentVal = this.lastName();
+        this.lastName(currentVal.toUpperCase());
+    }
 }
 
 // Activates knockout.js
 ko.applyBindings(new AppViewModel());
 
+// ////////////////////////////////////
 <!-- This is a *view* - HTML markup that defines the appearance of your UI -->
 
 <p>First name: <strong data-bind="text: firstName"></strong></p>
@@ -22,3 +29,6 @@ ko.applyBindings(new AppViewModel());
 <p>new lastname: <input data-bind="value: lastName" /></p>
 
 <p>full name: <strong data-bind="text: fullName"></strong></p>
+
+
+<button data-bind="click: capitalizeLastName">capitalize!</button>
