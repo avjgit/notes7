@@ -45,6 +45,11 @@ function SeatReservation(name, initialMeal) {
     var self = this;
     self.name = name;
     self.meal = ko.observable(initialMeal);
+
+    self.formattedPrice = ko.computed(function() {
+        var price = self.meal().price;
+        return price ? "$ " + price.toFixed(2) : "None";
+    });
 }
 
 // Overall viewmodel for this screen, along with initial state
@@ -84,7 +89,7 @@ ko.applyBindings(new ReservationsViewModel());
         <tr>
             <td data-bind="text: name"></td>
             <td><select data-bind="options: $root.availableMeals, value: meal, optionsText: 'mealName'"></select></td>
-            <td data-bind="text: meal().price"></td>
+            <td data-bind="text: formattedPrice"></td>
         </tr>
     </tbody>
 </table>
