@@ -53,3 +53,14 @@ public class Example {
         //...
     }
 }
+
+public class ExampleTest(){
+    TestDostuff(){
+        MockDb mockdb = new MockDb();
+
+        //MockDb is a subclass of SomeDbClass
+        Example example = new Example(mockdb);
+        example.DoStuff();
+        mockdb.AssertGetDataWasCalled();
+    }
+}
