@@ -40,6 +40,13 @@ public class Example {
         mydb = new SomeDeClass();
     }
 
+    //If we wanted to, we could pass the variable into the constructor. 
+    //That would "inject" the "dependency" into the class. 
+    //Now when we use the variable (dependency), we use the object that we were given rather than the one we created.    
+    public Example(SomeDbClass givendb){
+        mydb = givendb;
+    }
+
     public void DoStuff(){
         //...
         mydb.getdata();
