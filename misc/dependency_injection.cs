@@ -79,8 +79,16 @@ public class ExampleTest(){
 
 public class OrderService
 {
+    private IOrderSaver orderSaver;
+
+    public OrderService(IOrderSaver orderSaver)
+    {
+        this.orderSaver = orderSaver;
+    }
+
     public void AcceptOrder(Order order)
     {
-        new OrderDatabase().SaveOrder(order);
+        //new OrderDatabase().SaveOrder(order);
+        orderSaver.SaveOrder(order);
     }
 }
