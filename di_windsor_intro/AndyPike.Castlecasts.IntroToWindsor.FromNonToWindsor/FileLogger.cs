@@ -1,6 +1,6 @@
 ﻿namespace AndyPike.Castlecasts.IntroToWindsor.FromNonToWindsosr
 {
-    public class FileLogger
+    public class FileLogger : ILogger
     {
         public void Info(string message)
         {
