@@ -1,4 +1,4 @@
-﻿namespace AndyPike.Castlecasts.IntroToWindsor.IoC
+﻿namespace AndyPike.Castlecasts.IntroToWindsor.FromNonToWindsosr
 {
     public interface INotifier
     {
