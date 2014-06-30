@@ -64,3 +64,23 @@ public class ExampleTest(){
         mockdb.AssertGetDataWasCalled();
     }
 }
+
+//http://joelabrahamsson.com/inversion-of-control-an-introduction-with-examples-in-net/
+    //
+    // Inversion of Control
+    //
+    // before:
+    // x ---> y
+    //
+    // afer:
+    // x ---> Interface <--- y
+    // 
+    // benefit: implementation (y) can be changed
+
+public class OrderService
+{
+    public void AcceptOrder(Order order)
+    {
+        new OrderDatabase().SaveOrder(order);
+    }
+}
