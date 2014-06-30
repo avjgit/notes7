@@ -20,7 +20,11 @@
             //  * Save the order
             //  * Log the save somewhere
             //  * Notify the customer
-            var orderProcessingService = new OrderProcessingService();
+
+            var repository = new NHibernateRepository<Order>(new FileLogger());
+            var notifier = new PlainTextEmailer();
+
+            var orderProcessingService = new OrderProcessingService(repository, notifier);
             orderProcessingService.PlaceOrder(order);
         }
     }

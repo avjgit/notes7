@@ -1,12 +1,17 @@
 ﻿namespace AndyPike.Castlecasts.IntroToWindsor.FromNonToWindsosr
 {
-    public class NHibernateRepository<T>
+    public class NHibernateRepository<T> : IRepository<T>
     {
+        private readonly ILogger logger;
+
+        public NHibernateRepository(ILogger logger)
+        {
+            this.logger = logger;
+        }
+
         public void Save(T entity)
         {
             //Save the entity
-
-            var logger = new FileLogger();
             logger.Info("Saved an entity");
         }
     }
