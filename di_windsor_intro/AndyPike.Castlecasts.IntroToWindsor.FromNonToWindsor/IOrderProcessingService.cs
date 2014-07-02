@@ -1,4 +1,4 @@
-﻿namespace AndyPike.Castlecasts.IntroToWindsor.FromNonToWindsor
+﻿namespace AndyPike.Castlecasts.IntroToWindsor.FromNonToWindsosr
 {
     public interface IOrderProcessingService
     {

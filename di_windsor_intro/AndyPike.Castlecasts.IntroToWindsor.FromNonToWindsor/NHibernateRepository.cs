@@ -1,4 +1,6 @@
-﻿namespace AndyPike.Castlecasts.IntroToWindsor.FromNonToWindsosr
+﻿using System;
+
+namespace AndyPike.Castlecasts.IntroToWindsor.FromNonToWindsosr
 {
     public class NHibernateRepository<T> : IRepository<T>
     {
@@ -11,6 +13,8 @@
 
         public void Save(T entity)
         {
+            Console.WriteLine("Inside Save");
+
             //Save the entity
             logger.Info("Saved an entity");
         }

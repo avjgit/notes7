@@ -1,6 +1,8 @@
-﻿namespace AndyPike.Castlecasts.IntroToWindsor.FromNonToWindsosr
+﻿using System;
+
+namespace AndyPike.Castlecasts.IntroToWindsor.FromNonToWindsosr
 {
-    public class OrderProcessingService
+    public class OrderProcessingService : IOrderProcessingService
     {
         private readonly IRepository<Order> repository;
         private readonly INotifier notifier;
@@ -14,7 +16,10 @@
 
         public void PlaceOrder(Order order)
         {
+            Console.WriteLine("Inside PlaceOrder");
+
             repository.Save(order);
+            
             notifier.Send(order.Customer, "Your order was successfully processed.");
         }
     }
