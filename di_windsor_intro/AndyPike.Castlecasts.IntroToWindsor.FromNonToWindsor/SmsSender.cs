@@ -1,6 +1,6 @@
 using System;
 
-namespace AndyPike.Castlecasts.IntroToWindsor.FromNonToWindsosr
+namespace AndyPike.Castlecasts.IntroToWindsor.FromNonToWindsor
 {
     public class SmsSender : INotifier
     {

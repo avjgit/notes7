@@ -2,7 +2,7 @@
 using Castle.Windsor;
 using Castle.Windsor.Configuration.Interpreters;
 
-namespace AndyPike.Castlecasts.IntroToWindsor.FromNonToWindsosr
+namespace AndyPike.Castlecasts.IntroToWindsor.FromNonToWindsor
 {
     class Program
     {
