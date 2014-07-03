@@ -28,8 +28,22 @@ namespace cs_gotchas
             //public struct Point { … }     // defines a “value” type
             //public class Pen { … }        // defines a “reference” type   
 
+            change_pen(pen1);
+            Console.WriteLine(pen1.Color);
+
+            change_point(point1);
+            Console.WriteLine(point1.X);
 
             Console.ReadLine();
+        }
+
+        public static void change_pen(Pen p)
+        {
+            p.Color = Color.Green;
+        }
+        public static void change_point(Point p)
+        {
+            p.X = 40;
         }
 
     }
