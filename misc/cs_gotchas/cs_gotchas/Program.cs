@@ -70,6 +70,22 @@ namespace cs_gotchas
             // compare texts coming from user via CurrentCulture
             // compare texts coming code via OrdinalCulture
 
+            ////////////////////////////////////////////////////////////////// foreach vs LinQ
+            decimal total = 0;
+            
+            List<Account> myAccounts = new List<Account>();
+
+            foreach (Account account in myAccounts)
+            {
+                if (account.Status == "Active")
+                {
+                    total += account.Balance;
+                }
+            }
+
+            total = (from account in myAccounts
+                    where account.Status == "active"
+                    select account.Balance).Sum();
 
             ////////////////////////////////////////////////////////////////// 
 
