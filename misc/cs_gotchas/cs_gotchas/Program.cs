@@ -66,7 +66,11 @@ namespace cs_gotchas
             // outputs True:
             Console.WriteLine(s.Equals("straße", StringComparison.CurrentCulture));
             Console.WriteLine(s.Equals("Straße", StringComparison.CurrentCultureIgnoreCase));
-            
+
+            // compare texts coming from user via CurrentCulture
+            // compare texts coming code via OrdinalCulture
+
+
             ////////////////////////////////////////////////////////////////// 
 
             Console.ReadLine();
