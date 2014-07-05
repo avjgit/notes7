@@ -51,6 +51,22 @@ namespace cs_gotchas
             //and don’t rely on it being null..   
 
 
+            ////////////////////////////////////////////////////////////////// wrong string comparison
+            // don't use ==, use public bool Equals(string value, StringComparison comparisonType);
+            string s = "strasse";
+
+            // outputs False:
+            Console.WriteLine("comparisons:");
+            Console.WriteLine(s == "straße");
+            Console.WriteLine(s.Equals("straße"));
+            Console.WriteLine(s.Equals("straße", StringComparison.Ordinal));
+            Console.WriteLine(s.Equals("Straße", StringComparison.CurrentCulture));
+            Console.WriteLine(s.Equals("straße", StringComparison.OrdinalIgnoreCase));
+
+            // outputs True:
+            Console.WriteLine(s.Equals("straße", StringComparison.CurrentCulture));
+            Console.WriteLine(s.Equals("Straße", StringComparison.CurrentCultureIgnoreCase));
+            
             ////////////////////////////////////////////////////////////////// 
 
             Console.ReadLine();
