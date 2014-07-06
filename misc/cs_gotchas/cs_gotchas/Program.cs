@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using my_extensions;
 
 namespace cs_gotchas
 {
@@ -87,6 +88,9 @@ namespace cs_gotchas
                     where account.Status == "active"
                     select account.Balance).Sum();
 
+            ////////////////////////////////////////////////////////////////// extension methods
+            string s1 = "hi there extension methods";
+            Console.WriteLine(s1.WordCount());
             ////////////////////////////////////////////////////////////////// 
 
             Console.ReadLine();
@@ -100,6 +104,6 @@ namespace cs_gotchas
         {
             p.X = 40;
         }
-
+        
     }
 }
