@@ -97,6 +97,21 @@ namespace cs_gotchas
             {
                 f.Read(buffer, 0, 100);
             }
+            ////////////////////////////////////////////////////////////////// exception handling
+            // METHOD 1:
+            // Throws an exception if account can't be cast to SavingsAccount
+            //SavingsAccount savingsAccount = (SavingsAccount)account;
+
+            // METHOD 2:
+            // Does NOT throw an exception if account can't be cast to
+            // SavingsAccount; will just set savingsAccount to null instead
+            //SavingsAccount savingsAccount = account as SavingsAccount;
+
+            //int.Parse();     // throws exception if argument can’t be parsed
+            //int.TryParse();  // returns a bool to denote whether parse succeeded
+
+            //IEnumerable.First();           // throws exception if sequence is empty
+            //IEnumerable.FirstOrDefault();  // returns null/default value if sequence is empty
             ////////////////////////////////////////////////////////////////// 
 
             Console.ReadLine();
