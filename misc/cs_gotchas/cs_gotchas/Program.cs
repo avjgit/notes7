@@ -11,8 +11,13 @@ namespace cs_gotchas
 {
     class Program
     {
+        //source: http://www.toptal.com/c-sharp/top-10-mistakes-that-c-sharp-programmers-make
         static Point point3;
+
+        #pragma warning disable 649
         static Pen pen3;
+        #pragma warning restore 649
+
 
         static void Main(string[] args)
         {
@@ -93,10 +98,10 @@ namespace cs_gotchas
             string s1 = "hi there extension methods";
             Console.WriteLine(s1.WordCount());
             ////////////////////////////////////////////////////////////////// freeing up memory
-            using (FileStream f = File.OpenRead("foo.txt")) // "using" will call Dispose() at end of block
-            {
-                f.Read(buffer, 0, 100);
-            }
+            //using (FileStream f = File.OpenRead("foo.txt")) // "using" will call Dispose() at end of block
+            //{
+            //    f.Read(buffer, 0, 100);
+            //}
             ////////////////////////////////////////////////////////////////// exception handling
             // METHOD 1:
             // Throws an exception if account can't be cast to SavingsAccount
@@ -112,6 +117,10 @@ namespace cs_gotchas
 
             //IEnumerable.First();           // throws exception if sequence is empty
             //IEnumerable.FirstOrDefault();  // returns null/default value if sequence is empty
+            ////////////////////////////////////////////////////////////////// stick to 0 errors, 0 warnings
+            //there may be times when your code will look a bit fishy to the compiler, 
+            //even though it is exactly how you intended it to be. In those very rare cases, 
+            //use #pragma warning disable [warning id] around only the code that triggers the warning
             ////////////////////////////////////////////////////////////////// 
 
             Console.ReadLine();
