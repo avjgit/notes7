@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using my_extensions;
+using System.IO;
 
 namespace cs_gotchas
 {
@@ -91,6 +92,11 @@ namespace cs_gotchas
             ////////////////////////////////////////////////////////////////// extension methods
             string s1 = "hi there extension methods";
             Console.WriteLine(s1.WordCount());
+            ////////////////////////////////////////////////////////////////// freeing up memory
+            using (FileStream f = File.OpenRead("foo.txt")) // "using" will call Dispose() at end of block
+            {
+                f.Read(buffer, 0, 100);
+            }
             ////////////////////////////////////////////////////////////////// 
 
             Console.ReadLine();
@@ -104,6 +110,8 @@ namespace cs_gotchas
         {
             p.X = 40;
         }
-        
+
+
+        public static byte[] buffer { get; set; }
     }
 }
