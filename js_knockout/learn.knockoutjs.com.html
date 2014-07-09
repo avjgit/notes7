@@ -113,3 +113,12 @@ ko.applyBindings(new ReservationsViewModel());
 <h3 data-bind="visible: totalSurcharge() > 0">
     Total surcharge: $<span data-bind="text: totalSurcharge().toFixed(2)"></span>
 </h3>
+
+<!-- spa -->
+function WebmailViewModel() {
+    // Data
+    var self = this;
+    self.folders = ['Inbox', 'Archive', 'Sent', 'Spam', 'Another folder'];
+};
+
+ko.applyBindings(new WebmailViewModel());
