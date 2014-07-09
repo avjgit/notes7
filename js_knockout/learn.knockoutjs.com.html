@@ -122,3 +122,7 @@ function WebmailViewModel() {
 };
 
 ko.applyBindings(new WebmailViewModel());
+
+<ul data-bind="foreach: folders">
+    <li data-bind="text: $data"></li>
+</ul>
