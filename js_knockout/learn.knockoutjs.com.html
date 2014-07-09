@@ -119,7 +119,6 @@ function WebmailViewModel() {
     // Data
     var self = this;
     self.folders = ['Inbox', 'Archive', 'Sent', 'Spam'];
-
     self.chosenFolderId = ko.observable();
 
     // Behaviours
@@ -128,7 +127,7 @@ function WebmailViewModel() {
 
 ko.applyBindings(new WebmailViewModel());
 
-<ul data-bind="foreach: folders">
+<ul class="folders" data-bind="foreach: folders">
     <li data-bind="text: $data,
                    css: { selected: $data == $root.chosenFolderId() },
                    click: $root.goToFolder"></li>
