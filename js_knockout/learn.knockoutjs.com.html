@@ -118,11 +118,18 @@ ko.applyBindings(new ReservationsViewModel());
 function WebmailViewModel() {
     // Data
     var self = this;
-    self.folders = ['Inbox', 'Archive', 'Sent', 'Spam', 'Another folder'];
+    self.folders = ['Inbox', 'Archive', 'Sent', 'Spam'];
+
+    self.chosenFolderId = ko.observable();
+
+    // Behaviours
+    self.goToFolder = function(folder) { self.chosenFolderId(folder); };
 };
 
 ko.applyBindings(new WebmailViewModel());
 
 <ul data-bind="foreach: folders">
-    <li data-bind="text: $data"></li>
+    <li data-bind="text: $data,
+                   css: { selected: $data == $root.chosenFolderId() },
+                   click: $root.goToFolder"></li>
 </ul>
