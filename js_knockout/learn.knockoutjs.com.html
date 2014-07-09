@@ -126,6 +126,9 @@ function WebmailViewModel() {
         self.chosenFolderId(folder);
         $.get('/mail', { folder: folder }, self.chosenFolderData);
     };
+
+    self.goToFolder('Inbox');
+
 };
 
 ko.applyBindings(new WebmailViewModel());
