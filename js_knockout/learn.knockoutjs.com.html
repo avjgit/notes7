@@ -120,15 +120,23 @@ function WebmailViewModel() {
     var self = this;
     self.folders = ['Inbox', 'Archive', 'Sent', 'Spam'];
     self.chosenFolderId = ko.observable();
+    self.chosenFolderData = ko.observable();
+    self.chosenMailData = ko.observable();
 
     // Behaviours
     self.goToFolder = function(folder) {
         self.chosenFolderId(folder);
+        self.chosenMailData(null); // stop showing a mail
         $.get('/mail', { folder: folder }, self.chosenFolderData);
     };
 
     self.goToFolder('Inbox');
 
+    self.goToMail = function(mail) {
+        self.chosenFolderId(mail.folder);
+        self.chosenFolderData(null);
+        $.get("/mail", { mailId: mail.id }, self.chosenMailData);
+    }
 };
 
 ko.applyBindings(new WebmailViewModel());
@@ -149,7 +157,7 @@ ko.applyBindings(new WebmailViewModel());
         </tr>
     </thead>
     <tbody data-bind="foreach: mails">
-        <tr>
+        <tr data-bind="click: $root.goToMail">
             <td data-bind="text: from"></td>
             <td data-bind="text: to"></td>
             <td data-bind="text: subject"></td>
@@ -157,3 +165,12 @@ ko.applyBindings(new WebmailViewModel());
         </tr>
     </tbody>
 </table>
+<div class="viewMail" data-bind="with: chosenMailData">
+    <div clas="mailInfo">
+        <h1 data-bind="text: subject"></h1>
+        <p><label>From</label>:    <span data-bind="text: from"></span></p>
+        <p><label>To</label>:      <span data-bind="text: to"></span></p>
+        <p><label>Date</label>:    <span data-bind="text: date"></span></p>
+    </div>
+    <p class="message" data-bind="html: messageContent" />
+</div>
