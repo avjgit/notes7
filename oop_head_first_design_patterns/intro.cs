@@ -4,13 +4,18 @@ using System.Linq;
 using System.Text;
 
 abstract class Duck {
-    public void quack() { Console.WriteLine("quack-quack"); }
     public void swim()  { Console.WriteLine("see, I'm swimming!"); }
-    public void fly()   { Console.WriteLine("flying in the sky!"); }
     public abstract void look();
 }
-class MallardDuck : Duck {
+public interface IFlyable{
+    void fly();
+}
+public interface IQuackable{
+    void quack();
+}
+class MallardDuck : Duck, IQuackable {
     public override void look() { Console.WriteLine("looking like Mallard");}
+    public void quack()         { Console.WriteLine("quicking"); }
 }
 class RedDuck : Duck {
     public override void look() { Console.WriteLine("this is Red one");}
