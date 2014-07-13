@@ -17,12 +17,13 @@ class RedDuck : Duck {
 }
 class RubberDuck : Duck {
     public override void look() { Console.WriteLine("plain rubber duck");}
-    public void fly()           { Console.WriteLine("not flying"); }
+    public new void fly()       { Console.WriteLine("not flying"); }
 }
 class DecoyDuck : Duck {
-    // need heavily override inherited behaviour
-    public void fly()   { Console.WriteLine("not flying"); }
-    public void quack() { Console.WriteLine("not quicking either"); }
+    // need to heavily override inherited behaviour
+    public new void fly()       { Console.WriteLine("not flying"); }
+    public new void quack()     { Console.WriteLine("not quicking either"); }
+    public override void look() { Console.WriteLine("typical decoy"); }
 }
 class Program {
     static void Main(string[] args) {
