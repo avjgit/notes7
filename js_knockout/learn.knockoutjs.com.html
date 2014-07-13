@@ -235,8 +235,12 @@ ko.applyBindings(new SurveyViewModel("Which factors affect your technology choic
    "Totally believable testimonials on project homepage"
 ]));
 
-
 ko.bindingHandlers.fadeVisible = {
+    init: function(element, valueAccessor) {
+        // Start visible/invisible according to initial value
+        var shouldDisplay = valueAccessor();
+        $(element).toggle(shouldDisplay);
+    },
     update: function(element, valueAccessor) {
         // fading on updates
         var shouldDisplay = valueAccessor();
