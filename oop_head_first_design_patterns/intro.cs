@@ -6,11 +6,15 @@ using System.Text;
 abstract class Duck {
     public void swim()  { Console.WriteLine("see, I'm swimming!"); }
     public virtual void look() {Console.WriteLine("some common look");}
+    IFlyable flyBehavior;
+    IQuackable quackBehavior;
+    public void performQuack() { quackBehavior.quack(); }
+    public void performFly() { flyBehavior.fly(); }
 }
 public interface IFlyable{
     void fly();
 }
-class FlyWithWings : IFlyable{
+class FlyWithWings : Duck, IFlyable{
     public void fly(){
         Console.WriteLine("flying with the wings!");
     }
@@ -22,6 +26,12 @@ class FlyNot : Duck, IFlyable{
 }
 public interface IQuackable{
     void quack();
+}
+class Quack : IQuackable {
+    public void quack() { Console.WriteLine("quack"); }
+}
+class QuackMute : IQuackable {
+    public void quack() { Console.WriteLine("no quacking");}
 }
 class MallardDuck : Duck, IQuackable {
     public override void look() { Console.WriteLine("looking like Mallard");}
