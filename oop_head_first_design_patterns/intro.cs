@@ -9,34 +9,21 @@ abstract class Duck {
     public void fly()   { Console.WriteLine("flying in the sky!"); }
     public abstract void look();
 }
-
 class MallardDuck : Duck {
-    public override void look(){
-        Console.WriteLine("looking like Mallard");
-    }
+    public override void look() { Console.WriteLine("looking like Mallard");}
 }
-
 class RedDuck : Duck {
-    public override void look(){
-        Console.WriteLine("this is Red one");
-    }
+    public override void look() { Console.WriteLine("this is Red one");}
 }
-
 class RubberDuck : Duck {
-    public override void look(){
-        Console.WriteLine("plain rubber duck");
-    }
-    public void fly(){
-        Console.WriteLine("not flying");
-    }
+    public override void look() { Console.WriteLine("plain rubber duck");}
+    public void fly()           { Console.WriteLine("not flying"); }
 }
-
 class DecoyDuck : Duck {
     // need heavily override inherited behaviour
     public void fly()   { Console.WriteLine("not flying"); }
     public void quack() { Console.WriteLine("not quicking either"); }
 }
-
 class Program {
     static void Main(string[] args) {
         MallardDuck md = new MallardDuck();
