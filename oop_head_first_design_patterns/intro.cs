@@ -26,6 +26,15 @@ class RubberDuck : Duck {
     public override void look(){
         Console.WriteLine("plain rubber duck");
     }
+    public void fly(){
+        Console.WriteLine("not flying");
+    }
+}
+
+class DecoyDuck : Duck {
+    // need heavily override inherited behaviour
+    public void fly()   { Console.WriteLine("not flying"); }
+    public void quack() { Console.WriteLine("not quicking either"); }
 }
 
 class Program {
@@ -39,6 +48,6 @@ class Program {
         rd.swim();
 
         RubberDuck bd = new RubberDuck();
-        bd.fly();
+        bd.fly(); // rubber duck inherited flying, which shouldn't supposed to happen
     }
 }
