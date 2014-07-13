@@ -303,6 +303,11 @@ ko.bindingHandlers.starRating = {
 You have <b data-bind="text: incompleteTasks().length">&nbsp;</b> incomplete task(s)
 <span data-bind="visible: incompleteTasks().length == 0"> - it's beer time!</span>
 
+<form action="/tasks/saveform" method="post">
+    <input type="hidden" name="tasks" data-bind="value: ko.toJSON(tasks)"></textarea>
+    <button type="submit">Save</button>
+</form>
+
 function Task(data) {
     this.title = ko.observable(data.title);
     this.isDone = ko.observable(data.isDone);
@@ -323,6 +328,11 @@ function TaskListViewModel() {
         self.newTaskText("");
     };
     self.removeTask = function(task) { self.tasks.remove(task) };
+
+    $.getJSON("/task", function(allData) {
+        var mappedTasks = $.map(allData, function(item) {return new Task(item) });
+        self.tasks(mappedTasks);
+    });
 }
 
 ko.applyBindings(new TaskListViewModel());
