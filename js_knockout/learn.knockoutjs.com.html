@@ -210,7 +210,7 @@ ko.applyBindings(new WebmailViewModel());
 
 <h3 data-bind="fadeVisible: pointsUsed() > pointsBudget">You've used too many points! Please remove some.</h3>
 <p>You've got <b data-bind="text: pointsBudget - pointsUsed()"></b> points left to use.</p>
-<button data-bind="enable: pointsUsed() <= pointsBudget, click: save">Finished</button>
+<button data-bind="jqButton: {enable: pointsUsed() <= pointsBudget}, click: save">Finished</button>
 
 function Answer(text) { this.answerText = text; this.points = ko.observable(1); }
 
@@ -247,3 +247,13 @@ ko.bindingHandlers.fadeVisible = {
         shouldDisplay ? $(element).fadeIn() : $(element).fadeOut();
     }
 };
+
+ko.bindingHandlers.jqButton = {
+    init: function(element) {
+        $(element).button();
+    },
+    update: function(element, valueAccessor) {
+        var currentValue = valueAccessor();
+        $(element).button("option", "disabled", currentValue.enable === false);
+    }
+}
