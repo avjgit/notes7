@@ -6,6 +6,7 @@ using System.Text;
 abstract class Duck {
     public void quack() { Console.WriteLine("quack-quack"); }
     public void swim()  { Console.WriteLine("see, I'm swimming!"); }
+    public void fly()   { Console.WriteLine("flying in the sky!"); }
     public abstract void look();
 }
 
@@ -21,6 +22,12 @@ class RedDuck : Duck {
     }
 }
 
+class RubberDuck : Duck {
+    public override void look(){
+        Console.WriteLine("plain rubber duck");
+    }
+}
+
 class Program {
     static void Main(string[] args) {
         MallardDuck md = new MallardDuck();
@@ -30,5 +37,8 @@ class Program {
         RedDuck rd = new RedDuck();
         rd.look();
         rd.swim();
+
+        RubberDuck bd = new RubberDuck();
+        bd.fly();
     }
 }
