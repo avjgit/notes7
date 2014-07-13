@@ -208,7 +208,7 @@ ko.applyBindings(new WebmailViewModel());
     </tbody>
 </table>
 
-<h3 data-bind="visible: pointsUsed() > pointsBudget">You've used too many points! Please remove some.</h3>
+<h3 data-bind="fadeVisible: pointsUsed() > pointsBudget">You've used too many points! Please remove some.</h3>
 <p>You've got <b data-bind="text: pointsBudget - pointsUsed()"></b> points left to use.</p>
 <button data-bind="enable: pointsUsed() <= pointsBudget, click: save">Finished</button>
 
@@ -234,3 +234,12 @@ ko.applyBindings(new SurveyViewModel("Which factors affect your technology choic
    "Number of gradients/dropshadows on project homepage",
    "Totally believable testimonials on project homepage"
 ]));
+
+
+ko.bindingHandlers.fadeVisible = {
+    update: function(element, valueAccessor) {
+        // fading on updates
+        var shouldDisplay = valueAccessor();
+        shouldDisplay ? $(element).fadeIn() : $(element).fadeOut();
+    }
+};
