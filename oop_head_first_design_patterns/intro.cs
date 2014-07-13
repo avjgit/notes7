@@ -9,14 +9,14 @@ abstract class Duck {
     public abstract void look();
 }
 
-class MallardDuck {
-    public void look(){
+class MallardDuck : Duck {
+    public override void look(){
         Console.WriteLine("looking like Mallard");
     }
 }
 
-class RedDuck {
-    public void look(){
+class RedDuck : Duck {
+    public override void look(){
         Console.WriteLine("this is Red one");
     }
 }
@@ -25,8 +25,10 @@ class Program {
     static void Main(string[] args) {
         MallardDuck md = new MallardDuck();
         md.look();
+        md.quack();
 
         RedDuck rd = new RedDuck();
         rd.look();
+        rd.swim();
     }
 }
