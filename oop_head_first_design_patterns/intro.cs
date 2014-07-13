@@ -22,14 +22,23 @@ class RedDuck : Duck {
 }
 class RubberDuck : Duck {
     public override void look() { Console.WriteLine("plain rubber duck");}
-    public new void fly()       { Console.WriteLine("not flying"); }
+    public void fly() { Console.WriteLine("not flying"); }
 }
 class DecoyDuck : Duck {
     // need to heavily override inherited behaviour
-    public new void fly()       { Console.WriteLine("not flying"); }
-    public new void quack()     { Console.WriteLine("not quicking either"); }
+    public void fly() { Console.WriteLine("not flying"); }
+    public void quack() { Console.WriteLine("not quicking either"); }
     public override void look() { Console.WriteLine("typical decoy"); }
 }
+
+abstract class Animal{
+    public abstract void makeSound();
+}
+class Dog : Animal{
+    public void bark() {Console.WriteLine("bark");}
+    public override void makeSound() { bark(); }
+}
+
 class Program {
     static void Main(string[] args) {
         MallardDuck md = new MallardDuck();
@@ -42,5 +51,16 @@ class Program {
 
         RubberDuck bd = new RubberDuck();
         bd.fly(); // rubber duck inherited flying, which shouldn't supposed to happen
+
+        // "programming to implementation"
+        Dog d = new Dog();
+        d.bark();
+        // "programming to interface"
+        Animal a = new Dog();
+        a.makeSound();
+        // "programming to interface" even better
+        // Animal aa = getAnimal();
+        // aa.makeSound();
+
     }
 }
