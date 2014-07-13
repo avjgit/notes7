@@ -5,10 +5,20 @@ using System.Text;
 
 abstract class Duck {
     public void swim()  { Console.WriteLine("see, I'm swimming!"); }
-    public abstract void look();
+    public virtual void look() {Console.WriteLine("some common look");}
 }
 public interface IFlyable{
     void fly();
+}
+class FlyWithWings : IFlyable{
+    public void fly(){
+        Console.WriteLine("flying with the wings!");
+    }
+}
+class FlyNot : Duck, IFlyable{
+    public void fly(){
+        Console.WriteLine("can not fly");
+    }
 }
 public interface IQuackable{
     void quack();
@@ -20,9 +30,9 @@ class MallardDuck : Duck, IQuackable {
 class RedDuck : Duck {
     public override void look() { Console.WriteLine("this is Red one");}
 }
-class RubberDuck : Duck {
+class RubberDuck : FlyNot {
     public override void look() { Console.WriteLine("plain rubber duck");}
-    public void fly() { Console.WriteLine("not flying"); }
+    // public void fly() { Console.WriteLine("not flying"); }
 }
 class DecoyDuck : Duck {
     // need to heavily override inherited behaviour
