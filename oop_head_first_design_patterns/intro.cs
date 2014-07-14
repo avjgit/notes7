@@ -3,27 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-abstract class Duck {
-    public void swim()  { Console.WriteLine("see, I'm swimming!"); }
-    public virtual void look() {Console.WriteLine("some common look");}
-    public IFlyable flyBehavior;
+public abstract class Duck {
+    public void swim()  { Console.WriteLine("all ducks can swim"); }
+    public abstract void look(); //each duck has a look, although different
+    public IFlyable flyBehavior; // some duck fly, some - not
     public IQuackable quackBehavior;
     public void performQuack() { quackBehavior.quack(); }
     public void performFly() { flyBehavior.fly(); }
 }
+
+
 public interface IFlyable{
     void fly();
 }
 class FlyWithWings : IFlyable{
-    public void fly(){
-        Console.WriteLine("flying with the wings!");
-    }
+    public void fly(){ Console.WriteLine("flying with the wings!"); }
 }
 class FlyNot : IFlyable{
-    public void fly(){
-        Console.WriteLine("can not fly");
-    }
+    public void fly(){ Console.WriteLine("can not fly"); }
 }
+
+
 public interface IQuackable{
     void quack();
 }
@@ -33,12 +33,14 @@ class Quack : IQuackable {
 class QuackMute : IQuackable {
     public void quack() { Console.WriteLine("no quacking");}
 }
+
+
 class MallardDuck : Duck {
     public MallardDuck(){
         quackBehavior = new Quack();
         flyBehavior = new FlyWithWings();
     }
-    public override void look() { Console.WriteLine("looking like Mallard");}
+    public override void look() { Console.WriteLine("looking like Mallard"); }
 }
 class RedDuck : Duck {
     public override void look() { Console.WriteLine("this is Red one");}
@@ -67,16 +69,16 @@ class Dog : Animal{
 
 class Program {
     static void Main(string[] args) {
-        MallardDuck md = new MallardDuck();
+        Duck md = new MallardDuck();
         md.look();
-        md.quackBehavior.quack();
+        md.performQuack();
 
         RedDuck rd = new RedDuck();
         rd.look();
         rd.swim();
 
         RubberDuck bd = new RubberDuck();
-        bd.flyBehavior.fly(); // rubber duck inherited flying, which shouldn't supposed to happen
+        bd.performFly(); // rubber duck inherited flying, which shouldn't supposed to happen
 
         // "programming to implementation"
         Dog d = new Dog();
