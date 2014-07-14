@@ -10,6 +10,8 @@ public abstract class Duck {
     public IQuackable quackBehavior;
     public void performQuack() { quackBehavior.quack(); }
     public void performFly() { flyBehavior.fly(); }
+    public void setFlyBehaviour(IFlyable f){ flyBehavior = f; }
+    public void setQuackBehaviour(IQuackable q){ quackBehavior = q; }
 }
 
 
@@ -21,6 +23,11 @@ class FlyWithWings : IFlyable{
 }
 class FlyNot : IFlyable{
     public void fly(){ Console.WriteLine("can not fly"); }
+}
+class FlyWithRocket : IFlyable {
+    public void fly() {
+        Console.WriteLine("like an Elon!");
+    }
 }
 
 
@@ -58,6 +65,13 @@ class DecoyDuck : Duck {
     public void quack() { Console.WriteLine("not quicking either"); }
     public override void look() { Console.WriteLine("typical decoy"); }
 }
+class ModelDuck : Duck {
+    public ModelDuck(){
+        flyBehavior = new FlyNot();
+        quackBehavior = new Quack();
+    }
+    public override void look() { Console.WriteLine("a model duck"); }
+}
 
 abstract class Animal{
     public abstract void makeSound();
@@ -79,6 +93,12 @@ class Program {
 
         RubberDuck bd = new RubberDuck();
         bd.performFly(); // rubber duck inherited flying, which shouldn't supposed to happen
+
+        Console.WriteLine("-------- check out new model duck!");
+        Duck model = new ModelDuck();
+        model.performFly();
+        model.setFlyBehaviour(new FlyWithRocket());
+        model.performFly();
 
         // "programming to implementation"
         Dog d = new Dog();
