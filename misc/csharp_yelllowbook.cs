@@ -22,6 +22,31 @@ class GlazerCalc
 
         Console.WriteLine("The length of wood is " + woodLength + " feet.");
         Console.WriteLine("The area of glass is " + glassArea + " square meters.");
+
+        string x;
+        // x = "\x0041BCDE\a";
+        x = "\x0041BCDE\a";
+        Console.WriteLine(x);
+        x = @"\x0041BCDE\a - is good for specially formatted strings";
+        Console.WriteLine(x);
+        x = @"also
+        for strings
+        with layout";
+        Console.WriteLine(x);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         Console.ReadLine();
     }
 }
