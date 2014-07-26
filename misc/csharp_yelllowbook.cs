@@ -34,9 +34,9 @@ class GlazerCalc
         with layout";
         Console.WriteLine(x);
 
-        float myFloat;
-        myFloat = (float)3.4; // hey, 3.4 double; casting required
-        myFloat = 4.5f; // or with "f" in the end
+        // float myFloat;
+        // myFloat = (float)3.4; // hey, 3.4 double; casting required
+        // myFloat = 4.5f; // or with "f" in the end
 
         int j = 3, i = 2;
 
@@ -45,6 +45,12 @@ class GlazerCalc
 
         float float_fraction = (float)j / (float)i;
         Console.WriteLine ("float fraction is {0}", float_fraction); //1.5
+
+        // precision output
+        int some_int = 150;
+        double some_double = 12.345678;
+        Console.WriteLine("i: {0:0000.00}, f: {1:0.0000}", some_int, some_double);
+
 
 
 
