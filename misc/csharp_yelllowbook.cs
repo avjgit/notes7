@@ -46,12 +46,18 @@ class GlazerCalc
         float float_fraction = (float)j / (float)i;
         Console.WriteLine ("float fraction is {0}", float_fraction); //1.5
 
-        // precision output
+        // precision, number of digits output
         int some_int = 150;
-        double some_double = 12.345678;
+        double some_double = 12345.345678;
         Console.WriteLine("i: {0:0000.00}, f: {1:0.0000}", some_int, some_double);
+        Console.WriteLine("i: {0:#,##0} f: {1:##,##0.00}", some_int, some_double ); // # is "put a digit if you have one"
 
-
+        // layouts
+        Console.WriteLine ( "i: {0,10:0} f: {1,15:0.00}", some_int, some_double) ;
+        Console.WriteLine ( "i: {0,10:0} f: {1,15:0.00}", 0, 0 ) ;
+        // left justified
+        Console.WriteLine ( "i: {0,-10:0} f: {1,-15:0.00}", some_int, some_double) ;
+        Console.WriteLine ( "i: {0,-10:0} f: {1,-15:0.00}", 0, 0 ) ;
 
 
 
