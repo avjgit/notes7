@@ -77,9 +77,26 @@ class GlazerCalc
         Console.WriteLine("value after param changing is {0}", some_int);
         addOneByReference(ref some_int);
         Console.WriteLine("value after ref changing is {0}", some_int);
+        // also, passing parameters with OUT option
 
+        int age;
+        Console.Write("Enter your age: ");
+        string ageString = Console.ReadLine();
 
+        try
+        {
+            age = int.Parse(ageString);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+        Console.WriteLine("Programm flow continues.");
 
+        Console.Write("Enter your age again: ");
+        ageString = Console.ReadLine();
+        age = int.Parse(ageString);
+        Console.WriteLine("Programm flow stopps.");
 
 
 
