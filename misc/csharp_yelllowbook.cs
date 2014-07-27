@@ -2,6 +2,18 @@ using System;
 
 class GlazerCalc
 {
+    static void addOneToParam(int i)
+    {
+        i = i + 1;
+        Console.WriteLine("i param is {0}", i);
+    }
+
+    static void addOneByReference(ref int i)
+    {
+        i = i + 1;
+        Console.WriteLine("i by ref is {0}", i);
+    }
+
     static void Main()
     {
         // Console.Write("Enter width: ");
@@ -59,8 +71,12 @@ class GlazerCalc
         Console.WriteLine ( "i: {0,-10:0} f: {1,-15:0.00}", some_int, some_double) ;
         Console.WriteLine ( "i: {0,-10:0} f: {1,-15:0.00}", 0, 0 ) ;
 
-
-
+        // passing by value and by reference
+        Console.WriteLine("value initially is {0}", some_int);
+        addOneToParam(some_int);
+        Console.WriteLine("value after param changing is {0}", some_int);
+        addOneByReference(ref some_int);
+        Console.WriteLine("value after ref changing is {0}", some_int);
 
 
 
