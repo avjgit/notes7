@@ -1,5 +1,23 @@
 using System;
 
+//
+// S stands for SRP (Single responsibility principle
+//
+class Customer
+{
+    public void Add()
+    {
+        try
+        {
+            // Database code goes here
+        }
+        catch (Exception ex)
+        {
+            System.IO.File.WriteAllText(@"c:\Error.txt", ex.ToString());
+        }
+    }
+}
+
 class Notes
 {
 
