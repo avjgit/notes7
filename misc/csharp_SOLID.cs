@@ -3,10 +3,20 @@ using System;
 //
 // S stands for SRP (Single responsibility principle
 //
+class FileLogger
+{
+    public void Handle(string error)
+    {
+        System.IO.File.WriteAllText(@"c:\Error.txt", error);
+    }
+}
 class Customer
 {
-    public void Add()
+    private FileLogger logger = new FileLogger();
+
+    public virtual void Add()
     {
+
         try
         {
             // Database code goes here
@@ -15,7 +25,8 @@ class Customer
         {
             // here Customer class does what it is not supposed to do - logging.
             // It should be handled by some insance of Logging class
-            System.IO.File.WriteAllText(@"c:\Error.txt", ex.ToString());
+            // System.IO.File.WriteAllText(@"c:\Error.txt", ex.ToString());
+            logger.Handle(ex.ToString());
         }
     }
 }
