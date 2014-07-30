@@ -40,14 +40,16 @@ class Customer
 
     public double getDiscount(double TotalSales)
     {
-            if (_CustType == 1)
-            {
-                return TotalSales - 100;
-            }
-            else
-            {
-                return TotalSales - 50;
-            }
+        // problem: for each new type, new IF should be added -
+        // .. means, class should be modified
+        if (_CustType == 1)
+        {
+            return TotalSales - 100;
+        }
+        else
+        {
+            return TotalSales - 50;
+        }
     }
 }
 
