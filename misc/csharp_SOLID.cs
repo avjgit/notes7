@@ -42,14 +42,34 @@ class Customer
     {
         // problem: for each new type, new IF should be added -
         // .. means, class should be modified
-        if (_CustType == 1)
+        // if (_CustType == 1)
+        // {
+        //     return TotalSales - 100;
+        // }
+        // else
+        // {
+        //     return TotalSales - 50;
+        // }
+        public virtual double getDiscount(double TotalSales)
         {
-            return TotalSales - 100;
+            return TotalSales;
         }
-        else
-        {
-            return TotalSales - 50;
-        }
+    }
+}
+
+class SilverCustomer : Customer
+{
+    public override double getDiscount(double TotalSales)
+    {
+        return base.getDiscount(TotalSales) - 50;
+    }
+}
+
+class GoldCustomer : Customer
+{
+    public override double getDiscount(double TotalSales)
+    {
+        return base.getDiscount(TotalSales) = 100;
     }
 }
 
