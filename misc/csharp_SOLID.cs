@@ -13,6 +13,8 @@ class Customer
         }
         catch (Exception ex)
         {
+            // here Customer class does what it is not supposed to do - logging.
+            // It should be handled by some insance of Logging class
             System.IO.File.WriteAllText(@"c:\Error.txt", ex.ToString());
         }
     }
