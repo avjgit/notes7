@@ -11,7 +11,7 @@ class FileLogger
     }
 }
 
-partial class Customer : IDiscountable, IAddable
+partial class Customer : IDiscountable, IDatabase
 {
     private FileLogger logger = new FileLogger();
 
@@ -81,9 +81,10 @@ interface IDiscountable
     double getDiscount(double TotalSales);
 }
 
-interface IAddable
+interface IDatabase
 {
     void Add();
+    // void Read(); // bad
 }
 
 
@@ -102,8 +103,26 @@ class Enquiry : IDiscountable
     // }
 }
 
+// Interface segragation
+///////////////////////////////////////////////////////////////////////////////
+interface IDatabaseReadable : IDatabase
+{
+    void Read();
+}
 
+class CustomerWithReadRights : IDatabaseReadable
+{
+    public void Add()
+    {
+        Customer c = new Customer();
+        c.Add();
+    }
 
+    public void Read()
+    {
+        // some logic here
+    }
+}
 
 class Notes
 {
