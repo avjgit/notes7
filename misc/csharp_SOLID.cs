@@ -149,39 +149,15 @@ class EmailLogger : ILogger
 
 partial class Customer
 {
-    private ILogger l;
-
-    public Customer()
-    {
-
-    }
+    public Customer(){}
 
     // now it's responsibility of client, which consumes Customer, ...
     // ... to decide which logger to use
     public Customer(ILogger logger_to_use)
     {
-        l = logger_to_use;
+        logger_to_use = logger_to_use;
     }
 
-    public virtual void Add(int excHandle)
-    {
-        try
-        {
-
-        }
-        catch(Exception ex)
-        {
-            if (excHandle == 1)
-            {
-                l = new EventViewerLogger();
-            }
-            else
-            {
-                l = new EmailLogger();
-            }
-            l.Handle(ex.ToString());
-        }
-    }
 }
 
 class Notes
