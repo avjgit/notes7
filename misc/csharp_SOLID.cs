@@ -151,6 +151,18 @@ partial class Customer
 {
     private ILogger l;
 
+    public Customer()
+    {
+
+    }
+
+    // now it's responsibility of client, which consumes Customer, ...
+    // ... to decide which logger to use
+    public Customer(ILogger logger_to_use)
+    {
+        l = logger_to_use;
+    }
+
     public virtual void Add(int excHandle)
     {
         try
@@ -196,6 +208,9 @@ class Notes
             // here parent could not replace child
             c.Add();
         }
+
+        // DI: client will inject the Logger object
+        Customer myCustomer = new Customer(new EmailLogger());
 
         Console.ReadLine();
     }
