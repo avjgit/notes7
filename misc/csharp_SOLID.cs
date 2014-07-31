@@ -1,8 +1,8 @@
 using System;
+using System.Collections.Generic;
 
-//
-// each class has Single responsibility
-//
+// each class should have Single responsibility
+///////////////////////////////////////////////////////////////////////////////
 class FileLogger
 {
     public void Handle(string error)
@@ -15,7 +15,7 @@ partial class Customer
 {
     private FileLogger logger = new FileLogger();
 
-    public virtual void DoSomething()
+    public virtual void Add()
     {
         try
         {
@@ -31,9 +31,8 @@ partial class Customer
     }
 }
 
-//
 // class should be Open for extensions, Closed for modifications
-//
+///////////////////////////////////////////////////////////////////////////////
 partial class Customer
 {
     public int CustType {get; set;}
@@ -74,6 +73,25 @@ class GoldCustomer : Customer
     }
 }
 
+// Liskov substitution principle
+///////////////////////////////////////////////////////////////////////////////
+// to handle enquiries (like emails) - which are not customers yet
+class Enquiry : Customer
+{
+    public override double getDiscount(double TotalSales)
+    {
+        return base.getDiscount(TotalSales) - 5;
+    }
+
+    public override void Add()
+    {
+        throw new Exception("Not allowed");
+    }
+}
+
+
+
+
 class Notes
 {
     // reading http://www.codeproject.com/Articles/703634/SOLID-architecture-principles-using-simple-Csharp
@@ -85,6 +103,19 @@ class Notes
         // L stands for LSP (Liskov substitution principle)
         // I stands for ISP (Interface segregation principle)
         // D stands for DIP (Dependency inversion principle)
+
+        // illustration for Liskov
+        List<Customer> customers = new List<Customer>();
+        customers.Add(new SilverCustomer());
+        customers.Add(new GoldCustomer());
+        customers.Add(new Enquiry());
+
+        foreach (Customer c in customers)
+        {
+            // this will throw an error out of Enquiry
+            c.Add();
+        }
+
         Console.ReadLine();
     }
 }
