@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 // each class should have Single responsibility
 ///////////////////////////////////////////////////////////////////////////////
-class FileLogger
+class FileLogger : ILogger
 {
     public void Handle(string error)
     {
@@ -121,6 +121,54 @@ class CustomerWithReadRights : IDatabaseReadable
     public void Read()
     {
         // some logic here
+    }
+}
+
+// Dependency inversion
+///////////////////////////////////////////////////////////////////////////////
+interface ILogger
+{
+    void Handle(string error);
+}
+
+class EventViewerLogger : ILogger
+{
+    public void Handle(string error)
+    {
+        // log error to event viewer
+    }
+}
+
+class EmailLogger : ILogger
+{
+    public void Handle(string error)
+    {
+        // send error via email
+    }
+}
+
+partial class Customer
+{
+    private ILogger l;
+
+    public virtual void Add(int excHandle)
+    {
+        try
+        {
+
+        }
+        catch(Exception ex)
+        {
+            if (excHandle == 1)
+            {
+                l = new EventViewerLogger();
+            }
+            else
+            {
+                l = new EmailLogger();
+            }
+            l.Handle(ex.ToString());
+        }
     }
 }
 
