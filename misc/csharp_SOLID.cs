@@ -11,7 +11,7 @@ class FileLogger
     }
 }
 
-partial class Customer
+partial class Customer : IDiscountable, IAddable
 {
     private FileLogger logger = new FileLogger();
 
@@ -73,20 +73,33 @@ class GoldCustomer : Customer
     }
 }
 
-// Liskov substitution principle
+// Liskov substitution principle: parent should be able to replace child object
 ///////////////////////////////////////////////////////////////////////////////
-// to handle enquiries (like emails) - which are not customers yet
-class Enquiry : Customer
+
+interface IDiscountable
 {
-    public override double getDiscount(double TotalSales)
+    double getDiscount(double TotalSales);
+}
+
+interface IAddable
+{
+    void Add();
+}
+
+
+// to handle enquiries (like emails) - which are not customers yet
+class Enquiry : IDiscountable
+{
+    public double getDiscount(double TotalSales)
     {
-        return base.getDiscount(TotalSales) - 5;
+        return TotalSales - 5;
     }
 
-    public override void Add()
-    {
-        throw new Exception("Not allowed");
-    }
+    // this method was here when Enquity was inheriting from Customer
+    // public override void Add()
+    // {
+    //     throw new Exception("Not allowed");
+    // }
 }
 
 
@@ -108,11 +121,12 @@ class Notes
         List<Customer> customers = new List<Customer>();
         customers.Add(new SilverCustomer());
         customers.Add(new GoldCustomer());
-        customers.Add(new Enquiry());
+        // customers.Add(new Enquiry()); // now we catch this error at compile time
 
         foreach (Customer c in customers)
         {
             // this will throw an error out of Enquiry
+            // here parent could not replace child
             c.Add();
         }
 
