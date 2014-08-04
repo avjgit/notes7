@@ -1,0 +1,24 @@
+//////////////////////////////////
+http://blog.excastle.com/2007/01/31/blog-event-the-31-days-of-resharper/:
+
+
+hotkeys:
+Alt + Enter for hints
+(shift) F12 traverses through code
+Ctrl + Space for suggested name
+Ctrl + Shift + Backspace - go back
+Alt + Ins to generate code
+Ctrl + Shift + R - refactor
+
+Rename - "mother of all refactorings":)
+and
+Extract Method :)
+
+signs:
+gray is dead code
+
+
+functions:
+find usages
+find read usages
+finnd write usages
