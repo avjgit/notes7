@@ -12,14 +12,14 @@
   var gem = [
     {
       name: 'Dodeblablabla',
-      price: 9.99,
+      price: 2,
       description: 'best gem',
       canPurchase: true,
       soldOut: false
     },
     {
       name: 'Pentagonal',
-      price: 1.99,
+      price: 11.99,
       description: 'another best gem',
       canPurchase: true,
       soldOut: false

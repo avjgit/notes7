@@ -10,10 +10,12 @@
   <!-- <controller name> as <alias> -->
   <body ng-controller="StoreController as store">
 
-  <div ng-repeat="product in store.products">
+  <div ng-repeat="product in store.products | limitTo: 5 | orderBy:'-price'">
     <div ng-hide="product.soldOut">
       <h1>{{product.name}}</h1>
-      <h2>USD {{product.price}}</h2>
+      <!-- "pipe" - send the output into -->
+      <h2>{{product.price | currency}}</h2>
+
       <p>{{product.description}}</p>
 
       <!-- will be false if not such property -->
@@ -23,6 +25,11 @@
 
     <!-- was correct when StoreController was in div, not in whole body:  -->
     <!-- <p>Does it work outside controller?: {{store.product.name}}: No! </p> -->
+
+    {{'1300000000000' | date:'dd/mm/yyyy @ h:mma'}} <br>
+    {{'yea, this is how pipe works' | uppercase}} <br>
+
+    {{'some longish text' | limitTo:8}}
 
   </body>
 </html>
