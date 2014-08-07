@@ -12,7 +12,9 @@
   var gem = {
     name: 'Dodeblablabla',
     price: 9.99,
-    description: 'best gem'
+    description: 'best gem',
+    canPurchase: false,
+    soldOut: true
   }
 
 })();

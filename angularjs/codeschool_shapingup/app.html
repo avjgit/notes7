@@ -5,17 +5,24 @@
     <script type="text/javascript" src="lib/angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
   </head>
-  <body>
 
-    <!-- directive to attach appropriae controler to html-->
-    <!-- <controller name> as <alias> -->
-    <div ng-controller="StoreController as store">
+  <!-- directive to attach appropriae controler to html-->
+  <!-- <controller name> as <alias> -->
+  <body ng-controller="StoreController as store">
+
+    <div ng-hide="store.product.soldOut">
       <h1>{{store.product.name}}</h1>
       <h2>USD {{store.product.price}}</h2>
       <p>{{store.product.description}}</p>
+
+
+      <!-- will be false if not such property -->
+      <button ng-show="store.product.canPurchase">Add to Cart</button>
     </div>
 
-    <p>Does it work outside controller?: {{store.product.name}}: No! </p>
+
+    <!-- was correct when StoreController was in div, not in whole body:  -->
+    <!-- <p>Does it work outside controller?: {{store.product.name}}: No! </p> -->
 
   </body>
 </html>
