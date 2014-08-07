@@ -17,6 +17,8 @@
       <h2>{{product.price | currency}}</h2>
 
       <p>{{product.description}}</p>
+      <img ng-src="{{product.images[0].full}}" />
+
 
       <!-- will be false if not such property -->
       <button ng-show="store.product.canPurchase">Add to Cart</button>

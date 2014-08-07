@@ -15,7 +15,17 @@
       price: 2,
       description: 'best gem',
       canPurchase: true,
-      soldOut: false
+      soldOut: false,
+      images: [
+        {
+          full: 'dode-01-full.jpg',
+          thumb: 'dode-01-thumb.jpg'
+        },
+        {
+          full: 'dode-02-full.jpg',
+          thumb: 'dode-02-thumb.jpg'
+        }
+      ]
     },
     {
       name: 'Pentagonal',
