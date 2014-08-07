@@ -6,7 +6,7 @@ LEVEL 1: Get comfortable with expressions by beginning to build a gem store.
 - response with json data
 - directive: a marker in html tag to run js function
 - module: pieces of application: var app = angular.module('store', []); // in [] goes list of dependencies
-- expression: "<p>Answer is {{40 + 2}}</p>"
+- expression: <p>Answer is {{40 + 2}}</p>
 
 LEVEL 2: Use directives to add a gallery and tabs to the gem store.
 ===============================================================================================
