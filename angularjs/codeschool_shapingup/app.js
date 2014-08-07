@@ -6,15 +6,24 @@
   app.controller('StoreController', function(){
 
     // 'product' is property of contoller
-    this.product = gem;
+    this.products = gem;
   });
 
-  var gem = {
-    name: 'Dodeblablabla',
-    price: 9.99,
-    description: 'best gem',
-    canPurchase: false,
-    soldOut: true
-  }
+  var gem = [
+    {
+      name: 'Dodeblablabla',
+      price: 9.99,
+      description: 'best gem',
+      canPurchase: true,
+      soldOut: false
+    },
+    {
+      name: 'Pentagonal',
+      price: 1.99,
+      description: 'another best gem',
+      canPurchase: true,
+      soldOut: false
+    }
+  ]
 
 })();
