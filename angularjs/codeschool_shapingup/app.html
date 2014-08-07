@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html ng-app="gemStore">
   <head>
-    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
-    <script type="text/javascript" src="angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap.min.css" />
+    <script type="text/javascript" src="lib/angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
   </head>
   <body>
-    <h1>{{"Hello, Angular!"}}</h1>
+
+    <!-- directive to attach appropriae controler to html-->
+    <!-- <controller name> as <alias> -->
+    <div ng-controller="StoreController as store">
+      <h1>{{store.product.name}}</h1>
+      <h2>USD {{store.product.price}}</h2>
+      <p>{{store.product.description}}</p>
+    </div>
+
+    <p>Does it work outside controller?: {{store.product.name}}: No! </p>
+
   </body>
 </html>

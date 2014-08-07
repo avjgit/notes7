@@ -8,6 +8,8 @@ LEVEL 1: Get comfortable with expressions by beginning to build a gem store.
 - module: pieces of application: var app = angular.module('store', []); // in [] goes list of dependencies
 - expression: <p>Answer is {{40 + 2}}</p>
 
+- controllers: where we define app's behaviour
+
 LEVEL 2: Use directives to add a gallery and tabs to the gem store.
 ===============================================================================================
 
