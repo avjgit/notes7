@@ -14,6 +14,8 @@ LEVEL 2: Use directives to add a gallery and tabs to the gem store.
 ===============================================================================================
 recap:
     ng-app, ng-controller, ng-show/ng-hide, ng-repeat
+new:
+    ng-click. example: <a href ng-click="somevar = 1">Click me!</a> {{somevar}}
 
 
 LEVEL 3: Give the gem store review functionality by using Angular.js forms.
