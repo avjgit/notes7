@@ -43,6 +43,7 @@ LEVEL 5: Create a new module and learn to use the $http service to get real data
 
 $http({ method: 'GET', url: '/products.json' });
 $http.get('/products.json', {apiKey: 'myApiKey'});
+or post, put, delete
 
 both return a Promise - with .success() and .error() (check jQuery)
 
