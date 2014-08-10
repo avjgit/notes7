@@ -5,7 +5,21 @@
   app.directive('productTitle', function(){
     return {
       restrict: 'E', //alternatively, 'A' for attribute directive
-      templateUrl: 'product-title.html'
+      templateUrl: 'product_with_price.html'
+    };
+  });
+
+  app.directive('productDescription', function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'product_description.html'
+    };
+  });
+
+  app.directive('productSpecs', function(){
+    return {
+      restrict: 'A',
+      templateUrl: 'product_specs.html'
     };
   });
 
