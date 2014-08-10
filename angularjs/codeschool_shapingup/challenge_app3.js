@@ -16,7 +16,10 @@
   app.controller('StoreController', ['$http', function($http){
     this.products = gems;
 
-    $http.get('/products.json')
+    $http.get('/products.json').success(function(data){
+      // need to save data; like, "this.products = data"
+    });
+
   }]);
 
   var gems = [{
