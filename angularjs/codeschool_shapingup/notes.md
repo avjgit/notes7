@@ -20,6 +20,7 @@ new:
 
 LEVEL 3: Give the gem store review functionality by using Angular.js forms.
 ===============================================================================================
+ng-model for marking field as source for data binding
 
 LEVEL 4: Create custom directives for more organized and maintainable Angular.js code.
 ===============================================================================================
