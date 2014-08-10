@@ -9,11 +9,37 @@ enum AccountState
     Closed
 }
 
+struct Account
+{
+    public AccountState state;
+    public string name;
+    public string address;
+    public int accountNumber;
+    public int balance;
+    public int overdraft;
+};
+
 class Bank
 {
     static void Main()
     {
-        Console.WriteLine("bank here");
+        int MAX_CUSTOMERS = 50;
+        Account [] bank = new Account[MAX_CUSTOMERS];
+
+        Account RobsAccount = new Account{
+            state = AccountState.Active,
+            name = "Rob Miles",
+            address = "The House",
+            accountNumber = 1234,
+            balance = 0,
+            overdraft = -100
+        };
+
+        Console.WriteLine("Just created account for {0}.", RobsAccount.name);
+
+
+
+
         Console.ReadLine();
     }
 }
