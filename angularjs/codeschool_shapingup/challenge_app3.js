@@ -7,6 +7,8 @@
     this.addReview = function(product){
       products.reviews.push(this.review); // submitt current review to product reviews
 
+      this.review.createdOn = Date.now();
+
       this.review = {}; // to clean up form and live preview
     };
   });
