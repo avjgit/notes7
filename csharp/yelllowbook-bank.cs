@@ -18,6 +18,10 @@ struct Account
     private decimal balance;
     public int overdraft;
 
+    // static does not mean "can not be changed"
+    // static means - member of a class, not of an instance
+    public static int InterestRate;
+
     public bool Withdraw(decimal amount)
     {
         if (balance < amount)
@@ -25,6 +29,16 @@ struct Account
 
         balance -= amount;
         return true;
+    }
+
+    public void Pay(decimal amount)
+    {
+        balance += amount;
+    }
+
+    public decimal Balance()
+    {
+        return balance;
     }
 };
 
