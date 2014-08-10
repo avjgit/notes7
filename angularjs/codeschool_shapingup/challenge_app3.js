@@ -13,9 +13,9 @@
     };
   });
 
-  app.controller('StoreController', function(){
+  app.controller('StoreController', ['$http', function($http){
     this.products = gems;
-  });
+  }]);
 
   var gems = [{
       name: 'Azurite',
