@@ -15,6 +15,8 @@
 
   app.controller('StoreController', ['$http', function($http){
     this.products = gems;
+
+    $http.get('/products.json')
   }]);
 
   var gems = [{
