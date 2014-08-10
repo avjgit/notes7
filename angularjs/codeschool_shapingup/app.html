@@ -41,13 +41,13 @@
     <section ng-controller="PanelController as panel">
       <ul class="nav nav-pills">
         <!-- ng-class="{<name of class to set: expression to evaluate}" -->
-        <li ng-class="{ active:tab === 1 }">
+        <li ng-class="{ active:isSelected(1) }">
           <a href ng-click="panel.selectTab(1)">Description</a>
         </li>
-        <li ng-class="{ active:tab === 2 }">
+        <li ng-class="{ active:isSelected(2) }">
           <a href ng-click="panel.selectTab(2)">Specificaions</a>
         </li>
-        <li ng-class="{ active:tab === 3 }">
+        <li ng-class="{ active:isSelected(3) }">
           <a href ng-click="panel.selectTab(3)">Reviews</a>
         </li>
       </ul>
