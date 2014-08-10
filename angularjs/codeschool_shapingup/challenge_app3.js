@@ -15,6 +15,9 @@
 
   app.controller('StoreController', ['$http', function($http){
     var store = this;
+
+    store.products = []; // better to initialize now, 'cause request will take some time
+
     $http.get('/products.json').success(function(data){
       // need to save data; like, "this.products = data"
       // could not do that, because "this" inside here means $http.
