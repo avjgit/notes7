@@ -15,8 +15,17 @@ struct Account
     public string name;
     public string address;
     public int accountNumber;
-    public int balance;
+    private decimal balance;
     public int overdraft;
+
+    public bool Withdraw(decimal amount)
+    {
+        if (balance < amount)
+            return false;
+
+        balance -= amount;
+        return true;
+    }
 };
 
 class Bank
