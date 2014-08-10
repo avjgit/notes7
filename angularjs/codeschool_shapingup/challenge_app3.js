@@ -14,10 +14,12 @@
   });
 
   app.controller('StoreController', ['$http', function($http){
-    this.products = gems;
-
+    var store = this;
     $http.get('/products.json').success(function(data){
       // need to save data; like, "this.products = data"
+      // could not do that, because "this" inside here means $http.
+      // so, to the rescue:
+      store.products = data;
     });
 
   }]);
