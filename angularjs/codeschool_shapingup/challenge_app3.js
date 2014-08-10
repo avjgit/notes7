@@ -1,6 +1,13 @@
 (function() {
   var app = angular.module('gemStore', []);
 
+  app.directive('productTabs', function(){
+    return{
+      restrict: 'E',
+      templateUrl: 'product_tabs.html'
+    };
+  });
+
   // dash in HTML translates to camelCase in js
   app.directive('productTitle', function(){
     return {
