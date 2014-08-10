@@ -3,6 +3,10 @@
 
   app.controller("ReviewController", function(){
     this.review = {};
+
+    this.addReview = function(product){
+      products.reviews.push(this.review);
+    };
   });
 
   app.controller('StoreController', function(){
