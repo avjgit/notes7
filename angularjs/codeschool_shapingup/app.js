@@ -36,4 +36,8 @@
     }
   ]
 
+  app.controller("PanelController", function(){
+    this.tab = 1;
+  });
+
 })();

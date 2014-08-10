@@ -38,7 +38,7 @@
 
     {{'some longish text' | limitTo:8}}
 
-    <section ng-init="tab = 1">
+    <section ng-controller="PanelController as panel">
       <ul class="nav nav-pills">
         <!-- ng-class="{<name of class to set: expression to evaluate}" -->
         <li ng-class="{ active:tab === 1 }">
