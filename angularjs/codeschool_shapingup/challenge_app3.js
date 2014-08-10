@@ -5,7 +5,9 @@
     this.review = {};
 
     this.addReview = function(product){
-      products.reviews.push(this.review);
+      products.reviews.push(this.review); // submitt current review to product reviews
+
+      this.review = {}; // to clean up form and live preview
     };
   });
 
