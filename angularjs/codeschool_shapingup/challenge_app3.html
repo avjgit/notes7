@@ -33,16 +33,7 @@
           <em class="pull-right ng-scope ng-binding">$250.00</em>
         </h3>
  -->
-        <div ng-controller="GalleryController as gallery"  ng-show="product.images.length">
-          <div class="img-wrap">
-            <img ng-src="{{product.images[gallery.current]}}" />
-          </div>
-          <ul class="img-thumbnails clearfix">
-            <li class="small-image pull-left thumbnail" ng-repeat="image in product.images">
-              <img ng-src="{{image}}" />
-            </li>
-          </ul>
-        </div>
+        <product-gallery></product-gallery>
         <product-tabs></product-tabs>
       </div>
     </div>
