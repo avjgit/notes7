@@ -57,7 +57,7 @@
 
             <!--  Review Form -->
             <!-- removing HTML form validation -->
-            <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewCtrl.addReview(product)" novalidate>
+            <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
               <!--  Live Preview -->
               <blockquote>
                 <strong>{{reviewCtrl.review.stars}} Stars</strong>
