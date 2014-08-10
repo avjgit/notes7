@@ -5,6 +5,7 @@
     return{
       restrict: 'E',
       templateUrl: 'product_tabs.html',
+      controllerAs: 'tab',
       controller: function(){
         this.tab = 1;
 
