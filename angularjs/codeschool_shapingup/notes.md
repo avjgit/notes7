@@ -36,6 +36,7 @@ app.css:
 
 LEVEL 4: Create custom directives for more organized and maintainable Angular.js code.
 ===============================================================================================
+like <dinosaur></dinosaur>
 
 LEVEL 5: Create a new module and learn to use the $http service to get real data into the gem store.
 ===============================================================================================
