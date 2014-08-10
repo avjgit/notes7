@@ -12,7 +12,14 @@
     </header>
     <div class="list-group">
       <div class="list-group-item" ng-repeat="product in store.products">
-        <h3>{{product.name}} <em class="pull-right">{{product.price | currency}}</em></h3>
+        <h3 ng-include="'product_with_price.html'"></h3> <!-- here should be variable; if we passing the string, then ' quotes to use-->
+
+        <!-- generated, will look like: -->
+        <h3 ng-include="'product_with_price.html'" class="ng-scope">
+          <span class="ng-scope ng-binding">Super product!</span>
+          <em class="pull-right ng-scope ng-binding">$250.00</em>
+        </h3>
+
         <div ng-controller="GalleryController as gallery"  ng-show="product.images.length">
           <div class="img-wrap">
             <img ng-src="{{product.images[gallery.current]}}" />
