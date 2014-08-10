@@ -17,10 +17,22 @@ recap:
 new:
     ng-click. example: <a href ng-click="somevar = 1">Click me!</a> {{somevar}}
 
+built-in validation for emails, url, numbers
 
 LEVEL 3: Give the gem store review functionality by using Angular.js forms.
 ===============================================================================================
 ng-model for marking field as source for data binding
+
+ng css: ng-pristine for untouched field, ng-dirty for edited, ng-valid or ng-invalid
+
+app.css:
+.ng-invalid.ng-dirty {
+  border-color: red;
+}
+
+.ng-valid.ng-dirty {
+  border-color:green
+}
 
 LEVEL 4: Create custom directives for more organized and maintainable Angular.js code.
 ===============================================================================================
