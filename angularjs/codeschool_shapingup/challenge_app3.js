@@ -1,6 +1,10 @@
 (function() {
   var app = angular.module('gemStore', []);
 
+  app.controller("ReviewController", function(){
+    this.review = {};
+  });
+
   app.controller('StoreController', function(){
     this.products = gems;
   });
