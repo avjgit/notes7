@@ -40,3 +40,13 @@ like <dinosaur></dinosaur>
 
 LEVEL 5: Create a new module and learn to use the $http service to get real data into the gem store.
 ===============================================================================================
+
+$http({ method: 'GET', url: '/products.json' });
+$http.get('/products.json', {apiKey: 'myApiKey'});
+
+both return a Promise - with .success() and .error() (check jQuery)
+
+this is dependency injection:
+app.Controller('SomeController', ['$http', '$log', function($http, $log){
+
+}]);
