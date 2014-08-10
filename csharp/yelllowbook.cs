@@ -91,6 +91,10 @@ class GlazerCalc
         {
             Console.WriteLine(e.Message);
         }
+        finally
+        {
+            //something to be executed always
+        }
         Console.WriteLine("Programm flow continues.");
 
         Console.Write("Enter your age again: ");
