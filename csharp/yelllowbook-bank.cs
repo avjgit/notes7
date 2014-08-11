@@ -9,7 +9,7 @@ enum AccountState
     Closed
 }
 
-struct Account
+class Account
 {
     public AccountState state;
     public string name;
@@ -17,6 +17,18 @@ struct Account
     public int accountNumber;
     private decimal balance;
     public int overdraft;
+
+    public Account()
+    {
+        Console.WriteLine("shiny new account created");
+    }
+
+    public Account(string inName, string inAddress, decimal inBalance)
+    {
+        name = inName;
+        address = inAddress;
+        balance = inBalance;
+    }
 
     // static does not mean "can not be changed"
     // static means - member of a class, not of an instance
