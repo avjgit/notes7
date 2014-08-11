@@ -9,6 +9,13 @@ enum AccountState
     Closed
 }
 
+public interface IAccount
+{
+    void PayInFunds ( decimal amount );
+    bool WithdrawFunds ( decimal amount );
+    decimal GetBalance ();
+}
+
 class Account
 {
     public AccountState state;
