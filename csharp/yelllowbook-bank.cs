@@ -30,18 +30,14 @@ class Account
         balance = inBalance;
     }
 
-    public Account(string inName, string inAddress)
+    public Account(string inName, string inAddress) :
+        this (inName, inAddress, 0)
     {
-        name = inName;
-        address = inAddress;
-        balance = 0;
     }
 
-    public Account(string inName)
+    public Account(string inName) :
+        this (inName, "unknown", 0)
     {
-        name = inName;
-        address = 'unknown';
-        balance = 0;
     }
 
     // static does not mean "can not be changed"
