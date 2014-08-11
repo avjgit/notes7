@@ -25,7 +25,22 @@ public interface IPrintable
 
 public class BabyAccount : CustomerAccount, IAccount
 {
+    public override bool Withdraw(decimal amount)
+    {
+        if (amount > 10)
+        {
+            return false;
+        }
 
+        if (balance < amount)
+        {
+            return false;
+        }
+
+        balance -= amount;
+
+        return true;
+    }
 }
 
 public class CustomerAccount : IAccount, IPrintable
@@ -37,7 +52,10 @@ public class CustomerAccount : IAccount, IPrintable
         Console.WriteLine("printing");
     }
 
-    public bool Withdraw(decimal amount)
+    // The keyword virtual means “I might want to make another version of this method in
+    // a child class”. You don’t have to override the method, but if you don’t have the word
+    // present, you definitely can’t.
+    public virtual bool Withdraw(decimal amount)
     {
         if (balance < amount)
             return false;
