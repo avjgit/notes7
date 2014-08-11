@@ -40,6 +40,16 @@ class Account
     {
     }
 
+    // public Account (string inName, string inAddress)
+    // {
+    //     if ( SetName ( inName ) == false ) {
+    //        throw new Exception ( "Bad name " + inName) ;
+    //     }
+    //     if ( SetAddress ( inAddress) == false ) {
+    //         throw new Exception ( "Bad address" + inAddress) ;
+    //     }
+    // }
+
     // static does not mean "can not be changed"
     // static means - member of a class, not of an instance
     public static int InterestRate;
