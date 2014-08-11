@@ -11,9 +11,42 @@ enum AccountState
 
 public interface IAccount
 {
-    void PayInFunds ( decimal amount );
-    bool WithdrawFunds ( decimal amount );
-    decimal GetBalance ();
+    void Pay ( decimal amount );
+    bool Withdraw ( decimal amount );
+    decimal Balance ();
+}
+
+public interface IPrintable
+{
+    void Print();
+}
+public class CustomerAccount : IAccount, IPrintable
+{
+    private decimal balance = 0;
+
+    public void Print()
+    {
+        Console.WriteLine("printing");
+    }
+
+    public bool Withdraw(decimal amount)
+    {
+        if (balance < amount)
+            return false;
+
+        balance -= amount;
+        return true;
+    }
+
+    public void Pay(decimal amount)
+    {
+        balance += amount;
+    }
+
+    public decimal Balance()
+    {
+        return balance;
+    }
 }
 
 class Account
