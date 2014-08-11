@@ -32,14 +32,7 @@ public class BabyAccount : CustomerAccount, IAccount
             return false;
         }
 
-        if (balance < amount)
-        {
-            return false;
-        }
-
-        balance -= amount;
-
-        return true;
+        return base.Withdraw(amount);
     }
 }
 
