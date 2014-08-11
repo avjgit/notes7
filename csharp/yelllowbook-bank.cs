@@ -1,3 +1,5 @@
+// http://www.robmiles.com/c-yellow-book/
+
 using System;
 
 enum AccountState
@@ -20,6 +22,12 @@ public interface IPrintable
 {
     void Print();
 }
+
+public class BabyAccount : CustomerAccount, IAccount
+{
+
+}
+
 public class CustomerAccount : IAccount, IPrintable
 {
     private decimal balance = 0;
