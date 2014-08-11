@@ -22,6 +22,14 @@ struct Account
     // static means - member of a class, not of an instance
     public static int InterestRate;
 
+    private static decimal minIncome;
+    private static decimal minAge;
+
+    public static bool AccountAllowed (decimal income, int age)
+    {
+        return age >= minAge && income >= minIncome;
+    }
+
     public bool Withdraw(decimal amount)
     {
         if (balance < amount)
@@ -54,7 +62,7 @@ class Bank
             name = "Rob Miles",
             address = "The House",
             accountNumber = 1234,
-            balance = 0,
+            // balance = 0,
             overdraft = -100
         };
 
