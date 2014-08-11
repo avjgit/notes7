@@ -45,7 +45,8 @@ public class BabyAccount : CustomerAccount, IAccount
 
 public class CustomerAccount : IAccount, IPrintable
 {
-    private decimal balance = 0;
+    // changed private to protected so child classes could access it
+    protected decimal balance = 0;
 
     public void Print()
     {
