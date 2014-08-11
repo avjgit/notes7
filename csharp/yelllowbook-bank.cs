@@ -30,6 +30,20 @@ class Account
         balance = inBalance;
     }
 
+    public Account(string inName, string inAddress)
+    {
+        name = inName;
+        address = inAddress;
+        balance = 0;
+    }
+
+    public Account(string inName)
+    {
+        name = inName;
+        address = 'unknown';
+        balance = 0;
+    }
+
     // static does not mean "can not be changed"
     // static means - member of a class, not of an instance
     public static int InterestRate;
