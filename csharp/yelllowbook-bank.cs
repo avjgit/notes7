@@ -17,6 +17,7 @@ public interface IAccount
     bool Withdraw ( decimal amount );
     decimal Balance ();
     string RudeLetterString();
+    string GetName();
 }
 
 public interface IPrintable
@@ -94,6 +95,11 @@ public abstract class Account
     public int accountNumber;
     private decimal balance;
     public int overdraft;
+
+    public string GetName()
+    {
+        return name;
+    }
 
     public Account()
     {
@@ -198,12 +204,29 @@ class ArrayBank : IBank
 
     public IAccount FindAccount(string name)
     {
-        return (IAccount) new CustomerAccount(); // plug
+        for (int i = 0; i < accounts.Length; i++)
+        {
+            if (accounts[i] == null)
+                continue;
+
+            if (accounts[i].GetName() == name)
+                return accounts[i];
+        }
+        return null;
     }
 
     public bool StoreAccount(IAccount account)
     {
-        return true; // plug
+        for(int i = 0; i < accounts.Length; i++)
+        {
+            if (accounts[i] == null)
+            {
+                // if there is no accounts stored yet
+                accounts[i] = account; // save the referece to account
+                return true;
+            }
+        }
+        return false;
     }
 }
 
