@@ -27,6 +27,11 @@ class YellowBook
         if (misslePosition.Equals(shipPosition))
             Console.WriteLine("Bang!");
 
+        string s1 = "something";
+        string s2 = s1;
+        s2 = "different";
+        Console.WriteLine(s1);
+
         Console.ReadLine();
     }
 }
