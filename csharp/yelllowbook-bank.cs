@@ -1,6 +1,7 @@
 // http://www.robmiles.com/c-yellow-book/
 
 using System;
+using System.Collections;
 
 public enum AccountState
 {
@@ -228,6 +229,23 @@ class ArrayBank : IBank
         }
         return false;
     }
+}
+
+class HashBank : IBank
+{
+    Hashtable h = new Hashtable();
+
+    public bool StoreAccount(IAccount account)
+    {
+        h.Add(account.GetName(), account);
+        return true;
+    }
+
+    public IAccount FindAccount(string name)
+    {
+        return h[name] as IAccount;
+    }
+
 }
 
 class Bank
