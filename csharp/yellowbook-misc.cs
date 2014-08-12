@@ -16,15 +16,18 @@ class Person
 {
     private int age;
 
-    public int GetAge()
+    public int Age
     {
-        return this.age;
-    }
+        set
+        {
+            if (value > 0 && value <= 120)
+                this.age = value;
+        }
 
-    public void SetAge(int age_)
-    {
-        if (age_ > 0 && age_ <= 120)
-            this.age = age_;
+        get
+        {
+            return this.age;
+        }
     }
 }
 
@@ -50,7 +53,8 @@ class YellowBook
 
         Person p = new Person();
         // p.age = -1; //wrong! public property allows it
-        p.SetAge(1);
+        // p.SetAge(1);
+        p.Age = 1;
 
         Console.ReadLine();
     }
