@@ -244,6 +244,8 @@ class HashBank : IBank
     public IAccount FindAccount(string name)
     {
         return h[name] as IAccount;
+        // The as operator has the advantage that if bankHashtable[name] does not return an account,
+        // or returns something of the wrong type, the as operator will generate a null reference
     }
 
 }
