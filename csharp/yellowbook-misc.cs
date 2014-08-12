@@ -4,6 +4,12 @@ class Point
 {
     public int x;
     public int y;
+
+    public override bool Equals(object obj)
+    {
+        Point comparable = (Point) obj;
+        return comparable.x == x && comparable.y == y;
+    }
 }
 
 class YellowBook
@@ -18,7 +24,7 @@ class YellowBook
         misslePosition.x = 1;
         misslePosition.y = 2;
 
-        if (misslePosition == shipPosition)
+        if (misslePosition.Equals(shipPosition))
             Console.WriteLine("Bang!");
 
         Console.ReadLine();
