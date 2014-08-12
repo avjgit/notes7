@@ -12,6 +12,11 @@ class Point
     }
 }
 
+class Person
+{
+    public int Age;
+}
+
 class YellowBook
 {
     public static void Main()
@@ -31,6 +36,9 @@ class YellowBook
         string s2 = s1;
         s2 = "different";
         Console.WriteLine(s1);
+
+        Person p = new Person();
+        p.Age = -1; //wrong! public property allows it
 
         Console.ReadLine();
     }
