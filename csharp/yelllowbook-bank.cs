@@ -16,6 +16,7 @@ public interface IAccount
     void Pay ( decimal amount );
     bool Withdraw ( decimal amount );
     decimal Balance ();
+    string RudeLetterString();
 }
 
 public interface IPrintable
@@ -58,9 +59,9 @@ public class CustomerAccount : Account, IPrintable
         Console.WriteLine("printing");
     }
 
-    public string RudeLetterString()
+    public override string RudeLetterString()
     {
-        Console.WriteLine("here's the letter!");
+        return "you are overdrawn";
     }
 
     // The keyword virtual means “I might want to make another version of this method in
@@ -166,7 +167,7 @@ class Bank
         int MAX_CUSTOMERS = 50;
         Account [] bank = new Account[MAX_CUSTOMERS];
 
-        Account RobsAccount = new Account{
+        Account RobsAccount = new CustomerAccount{
             state = AccountState.Active,
             name = "Rob Miles",
             address = "The House",
