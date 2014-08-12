@@ -181,8 +181,35 @@ public abstract class Account
 // Delegates
 public delegate decimal CalculateFee(decimal balance);
 
+public interface IBank
+{
+    IAccount FindAccount (string name);
+    bool StoreAccount(IAccount account);
+}
+
+class ArrayBank : IBank
+{
+    private IAccount [] accounts;
+
+    public ArrayBank(int size)
+    {
+        accounts = new IAccount [size];
+    }
+
+    public IAccount FindAccount(string name)
+    {
+        return (IAccount) new CustomerAccount(); // plug
+    }
+
+    public bool StoreAccount(IAccount account)
+    {
+        return true; // plug
+    }
+}
+
 class Bank
 {
+
     static void Main()
     {
         int MAX_CUSTOMERS = 50;
@@ -216,6 +243,8 @@ class Bank
         // Def:
         // A delegate is a type-safe referece to a method in a class
         // calc = new CalculateFee(c.FriendlyFee); // as well
+
+        IBank abank = new ArrayBank(50);
 
         Console.ReadLine();
     }
