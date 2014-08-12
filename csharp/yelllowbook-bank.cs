@@ -158,6 +158,14 @@ public abstract class Account
 
     // abstract classes differ from interfaces in that way,
     // that they may have some methods with full body
+
+    // Interfaces let me describe what each component can do.
+    // Class hierarchies let me re-use code inside those components.
+
+    public override string ToString()
+    {
+        return "Name: " + name + " balance: " + balance;
+    }
 };
 
 class Bank
@@ -179,6 +187,8 @@ class Bank
         Console.WriteLine("Just created account for {0}.", RobsAccount.name);
 
         Account a2 = new CustomerAccount("Joe", "house");
+
+        Console.WriteLine(RobsAccount.ToString());
 
 
 
