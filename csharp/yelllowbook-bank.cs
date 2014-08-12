@@ -58,6 +58,11 @@ public class CustomerAccount : Account, IPrintable
         Console.WriteLine("printing");
     }
 
+    public string RudeLetterString()
+    {
+        Console.WriteLine("here's the letter!");
+    }
+
     // The keyword virtual means “I might want to make another version of this method in
     // a child class”. You don’t have to override the method, but if you don’t have the word
     // present, you definitely can’t.
@@ -71,7 +76,7 @@ public class CustomerAccount : Account, IPrintable
     // }
 }
 
-public class Account
+public abstract class Account
 {
     public AccountState state;
     public string name;
@@ -142,6 +147,16 @@ public class Account
     {
         return balance;
     }
+
+    // method body is not provided in the class.
+    // we're requiring child classes to do so.
+    // one abstract method makes whole class abstract
+    // ('cause you can't now create instance of this class
+    // ('cause - instance would not know what to do if this method would called))
+    public abstract string RudeLetterString();
+
+    // abstract classes differ from interfaces in that way,
+    // that they may have some methods with full body
 };
 
 class Bank
