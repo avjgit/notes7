@@ -14,7 +14,18 @@ class Point
 
 class Person
 {
-    public int Age;
+    private int age;
+
+    public int GetAge()
+    {
+        return this.age;
+    }
+
+    public void SetAge(int age_)
+    {
+        if (age_ > 0 && age_ <= 120)
+            this.age = age_;
+    }
 }
 
 class YellowBook
@@ -38,7 +49,8 @@ class YellowBook
         Console.WriteLine(s1);
 
         Person p = new Person();
-        p.Age = -1; //wrong! public property allows it
+        // p.age = -1; //wrong! public property allows it
+        p.SetAge(1);
 
         Console.ReadLine();
     }
