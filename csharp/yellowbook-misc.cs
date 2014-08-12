@@ -54,7 +54,19 @@ class YellowBook
         Person p = new Person();
         // p.age = -1; //wrong! public property allows it
         // p.SetAge(1);
-        p.Age = 1;
+        p.Age = 1; // calling property, not a field
+
+        // NB: If there is a situation where a property assignment can fail it is better to use a method, not a property
+        // since method can return bool for success:
+        // public bool SetAge( int inAge )
+        // {
+        // if ( (inAge > 0) && (inAge < 120) )
+        // {
+        // this.age = inAge;
+        // return true;
+        // }
+        // return false;
+        // }
 
         Console.ReadLine();
     }
