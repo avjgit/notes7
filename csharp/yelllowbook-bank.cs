@@ -2,7 +2,7 @@
 
 using System;
 
-enum AccountState
+public enum AccountState
 {
     New,
     Active,
@@ -36,10 +36,22 @@ public sealed class BabyAccount : CustomerAccount, IAccount
     }
 }
 
-public class CustomerAccount : IAccount, IPrintable
+public class CustomerAccount : Account, IPrintable
 {
     // changed private to protected so child classes could access it
     protected decimal balance = 0;
+
+    public CustomerAccount() :
+        base ()
+    {
+
+    }
+
+    public CustomerAccount(string name, string address) :
+        base (name, address)
+    {
+
+    }
 
     public void Print()
     {
@@ -49,27 +61,17 @@ public class CustomerAccount : IAccount, IPrintable
     // The keyword virtual means “I might want to make another version of this method in
     // a child class”. You don’t have to override the method, but if you don’t have the word
     // present, you definitely can’t.
-    public virtual bool Withdraw(decimal amount)
-    {
-        if (balance < amount)
-            return false;
+    // public virtual bool Withdraw(decimal amount)
+    // {
+    //     if (balance < amount)
+    //         return false;
 
-        balance -= amount;
-        return true;
-    }
-
-    public void Pay(decimal amount)
-    {
-        balance += amount;
-    }
-
-    public decimal Balance()
-    {
-        return balance;
-    }
+    //     balance -= amount;
+    //     return true;
+    // }
 }
 
-class Account
+public class Account
 {
     public AccountState state;
     public string name;
@@ -122,7 +124,7 @@ class Account
         return age >= minAge && income >= minIncome;
     }
 
-    public bool Withdraw(decimal amount)
+    public virtual bool Withdraw(decimal amount)
     {
         if (balance < amount)
             return false;
@@ -160,6 +162,7 @@ class Bank
 
         Console.WriteLine("Just created account for {0}.", RobsAccount.name);
 
+        Account a2 = new CustomerAccount("Joe", "house");
 
 
 
