@@ -23,7 +23,7 @@ public interface IPrintable
     void Print();
 }
 
-public class BabyAccount : CustomerAccount, IAccount
+public sealed class BabyAccount : CustomerAccount, IAccount
 {
     public override bool Withdraw(decimal amount)
     {
