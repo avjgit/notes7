@@ -75,6 +75,15 @@ public class CustomerAccount : Account, IPrintable
     //     balance -= amount;
     //     return true;
     // }
+
+
+    public decimal RipoffFee(decimal balance)
+    {
+        if (balance < 0)
+            return 100;
+        else
+            return 1;
+    }
 }
 
 public abstract class Account
@@ -168,6 +177,10 @@ public abstract class Account
     }
 };
 
+/////////////////////////
+// Delegates
+public delegate decimal CalculateFee(decimal balance);
+
 class Bank
 {
     static void Main()
@@ -190,7 +203,19 @@ class Bank
 
         Console.WriteLine(RobsAccount.ToString());
 
+        /////////////////////////
+        // Delegates
+        // public delegate decimal CalculateFee(decimal balance);
+        CustomerAccount c = new CustomerAccount();
+        Console.WriteLine(c.RipoffFee(1));
 
+        CalculateFee calc = new CalculateFee(c.RipoffFee);
+        decimal fees = calc(99);
+        Console.WriteLine(fees);
+
+        // Def:
+        // A delegate is a type-safe referece to a method in a class
+        // calc = new CalculateFee(c.FriendlyFee); // as well
 
         Console.ReadLine();
     }
