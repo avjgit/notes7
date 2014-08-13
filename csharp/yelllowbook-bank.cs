@@ -289,6 +289,29 @@ class Bank
 
         IBank abank = new ArrayBank(50);
 
+        ArrayList store = new ArrayList();
+        store.Add(RobsAccount); // not actually 'adding', but storing a reference
+        int x = 5;
+        store.Add(x); // yeah; multiple-typed
+
+        Account r = (Account) store[0]; // accessing requires casting!
+
+        // removal
+        store.Remove(RobsAccount);
+        // ! this removes just the first occurrence of the reference
+        // if the store contained more than one reference to robsAccount then each of them could be removed individually.
+        // this does not throws an error if thre is no such reference
+
+        // size
+        Console.WriteLine(store.Count);
+
+        // content
+        if (store.Contains(RobsAccount)){
+            Console.WriteLine("Rob is in the bank");
+        }
+
+        // problem with ArrayLists - not type safe
+
         Console.ReadLine();
     }
 }
