@@ -321,7 +321,19 @@ class Bank
         // accountList.Add(x); // impossible!
         List<int> scores = new List<int>();
 
+        // Dictionary! Is better HashTable, like List is better ArrayList:) Typesafe.
+        Dictionary<string, Account> dictionary = new Dictionary<string, Account>();
+        dictionary.Add("Rob", RobsAccount);
+        // dictionary.Add("Non account", x); // impossible!
 
+        dictionary["Rob"].Pay(40); // as typesafe - no cast required
+
+        Account nonexisting;
+        // if no such key in dict, error will be thrown
+        // nonexisting = dictionary["Joe"];
+        // to avoid, should check first:
+        if (dictionary.ContainsKey("Joe"))
+           nonexisting = dictionary["Joe"];
 
         Console.ReadLine();
     }
