@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections;
+using System.Collections.Generic;
 
 public enum AccountState
 {
@@ -292,7 +293,7 @@ class Bank
         ArrayList store = new ArrayList();
         store.Add(RobsAccount); // not actually 'adding', but storing a reference
         int x = 5;
-        store.Add(x); // yeah; multiple-typed
+        store.Add(x); // ARRAYLIST IS NOT TYPE SAFE!
 
         Account r = (Account) store[0]; // accessing requires casting!
 
@@ -311,6 +312,16 @@ class Bank
         }
 
         // problem with ArrayLists - not type safe
+
+        // List to the rescue! Comes with newer C#. Type-safe
+
+        // Generics - list of things, but things of same type
+
+        List<Account> accountList = new List<Account>();
+        // accountList.Add(x); // impossible!
+        List<int> scores = new List<int>();
+
+
 
         Console.ReadLine();
     }
