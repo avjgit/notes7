@@ -18,6 +18,8 @@ namespace mvc4jumpstart.Controllers
 
         public ActionResult Spaghetti()
         {
+            ViewBag.Message = "here are your spaghetti:)";
+            ViewBag.Spaghetti = 200;
             return View();
         }
 
