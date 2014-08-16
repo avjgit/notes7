@@ -7,7 +7,8 @@ namespace conference.Models
     {
         public int SpeakerId { get; set; }
         
-        [Required(ErrorMessage = "Speaker name is required")]
+        // display name can be used in error message
+        [Required(ErrorMessage = "{0} is required")]
         [Display(Name = "Speaker name")]
         public string Name { get; set; }
 
