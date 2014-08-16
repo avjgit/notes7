@@ -15,6 +15,8 @@ namespace conference.Models
         [DataType(DataType.MultilineText)]
         public string Abstract { get; set; }
         public int SpeakerId { get; set; }
+        
+        // like, "Session has Speaker" (one? yeah)
         public virtual Speaker Speaker { get; set; }
     }
 }

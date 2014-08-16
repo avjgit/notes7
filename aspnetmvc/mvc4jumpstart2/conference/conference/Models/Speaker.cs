@@ -13,8 +13,10 @@ namespace conference.Models
         public string Name { get; set; }
 
         [DataType(DataType.EmailAddress)]
+        [Display(Name = "Email")]
         public string EmailAddres { get; set; }
 
+        // "Speaker has Sesions"
         public virtual List<Session> Sessions { get; set; } 
     }
 }
