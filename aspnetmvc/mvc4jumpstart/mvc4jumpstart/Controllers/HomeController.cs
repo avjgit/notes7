@@ -16,5 +16,10 @@ namespace mvc4jumpstart.Controllers
             return View();
         }
 
+        public ActionResult Spaghetti()
+        {
+            return View();
+        }
+
     }
 }
