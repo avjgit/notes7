@@ -17,6 +17,6 @@ namespace conference.Models
         public string EmailAddres { get; set; }
 
         // "Speaker has Sesions"
-        public virtual List<Session> Sessions { get; set; } 
+        //public virtual List<Session> Sessions { get; set; } 
     }
 }
