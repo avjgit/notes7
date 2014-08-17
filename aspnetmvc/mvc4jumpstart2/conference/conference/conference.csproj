@@ -184,6 +184,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SessionController.cs" />
+    <Compile Include="Controllers\SpeakerController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -309,6 +310,11 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Session\Index.cshtml" />
     <Content Include="Views\Session\Create.cshtml" />
+    <Content Include="Views\Speaker\Index.cshtml" />
+    <Content Include="Views\Speaker\Details.cshtml" />
+    <Content Include="Views\Speaker\Create.cshtml" />
+    <Content Include="Views\Speaker\Edit.cshtml" />
+    <Content Include="Views\Speaker\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
