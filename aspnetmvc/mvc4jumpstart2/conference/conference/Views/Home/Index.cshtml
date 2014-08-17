@@ -43,3 +43,18 @@
         <a href="http://go.microsoft.com/fwlink/?LinkId=245157">Learn more…</a>
     </li>
 </ol>
+
+
+@* Razor examples *@
+<span>
+    Price is @(Model.Price * 1.2)
+</span>
+
+@if (Model.Count > 5)
+{
+    foreach (var item in Model)
+    {
+         <li>@item.Name</li>         
+    }
+}
+
