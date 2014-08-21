@@ -10,6 +10,8 @@ namespace conference.Controllers
 {
     public class SessionController : Controller
     {
+        ConferenceContext db = new ConferenceContext();
+
         //
         // GET: /Session/
 
@@ -25,12 +27,14 @@ namespace conference.Controllers
         // FILTERS: authorization, before/ after action, before/ action result
         // can be put on class or on method
         // GET
-        [Authorize(Roles = "Administrators")]
+        // [Authorize(Roles = "Administrators")]
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
         }
         
+        [HttpPost]
         // POST
         public ActionResult Create(Session session)
         {
@@ -53,6 +57,16 @@ namespace conference.Controllers
 
             // redirecting to list of sesions
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Details(int id = 0)
+        {
+            Session session = db.Sessions.Find(id);
+            if (session == null)
+            {
+                return HttpNotFound();
+            }
+            return View(session);
         }
 
 
