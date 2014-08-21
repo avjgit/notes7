@@ -1,63 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using conference.Models;
-using Microsoft.Ajax.Utilities;
 
 namespace conference.Controllers
 {
     public class SessionController : Controller
     {
-        ConferenceContext db = new ConferenceContext();
+        private ConferenceContext db = new ConferenceContext();
 
         //
         // GET: /Session/
 
         public ActionResult Index()
         {
-            var context = new ConferenceContext();
-            List<Session> sessions = context.Sessions.ToList();
-            //return View("Index", sessions);
-            // empty view name defaults to controller method name
-            return View(sessions); 
+            var sessions = db.Sessions.Include(s => s.Speaker);
+            return View(sessions.ToList());
         }
 
-        // FILTERS: authorization, before/ after action, before/ action result
-        // can be put on class or on method
-        // GET
-        // [Authorize(Roles = "Administrators")]
-        [HttpGet]
-        public ActionResult Create()
-        {
-            return View();
-        }
-        
-        [HttpPost]
-        // POST
-        public ActionResult Create(Session session)
-        {
-            if (!ModelState.IsValid)
-                return View(session);
-
-            try
-            {
-                var context = new ConferenceContext();
-                context.Sessions.Add(session);
-                context.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                ModelState.AddModelError("Error", ex.Message);
-                return View(session);
-            }
-
-            TempData["Message"] = "Created " + session.Title;
-
-            // redirecting to list of sesions
-            return RedirectToAction("Index");
-        }
+        //
+        // GET: /Session/Details/5
 
         public ActionResult Details(int id = 0)
         {
@@ -69,6 +35,94 @@ namespace conference.Controllers
             return View(session);
         }
 
+        //
+        // GET: /Session/Create
 
+        public ActionResult Create()
+        {
+            ViewBag.SpeakerId = new SelectList(db.Speakers, "SpeakerId", "Name");
+            return View();
+        }
+
+        //
+        // POST: /Session/Create
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Session session)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Sessions.Add(session);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.SpeakerId = new SelectList(db.Speakers, "SpeakerId", "Name", session.SpeakerId);
+            return View(session);
+        }
+
+        //
+        // GET: /Session/Edit/5
+
+        public ActionResult Edit(int id = 0)
+        {
+            Session session = db.Sessions.Find(id);
+            if (session == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.SpeakerId = new SelectList(db.Speakers, "SpeakerId", "Name", session.SpeakerId);
+            return View(session);
+        }
+
+        //
+        // POST: /Session/Edit/5
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Session session)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(session).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.SpeakerId = new SelectList(db.Speakers, "SpeakerId", "Name", session.SpeakerId);
+            return View(session);
+        }
+
+        //
+        // GET: /Session/Delete/5
+
+        public ActionResult Delete(int id = 0)
+        {
+            Session session = db.Sessions.Find(id);
+            if (session == null)
+            {
+                return HttpNotFound();
+            }
+            return View(session);
+        }
+
+        //
+        // POST: /Session/Delete/5
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Session session = db.Sessions.Find(id);
+            db.Sessions.Remove(session);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            db.Dispose();
+            base.Dispose(disposing);
+        }
     }
 }
