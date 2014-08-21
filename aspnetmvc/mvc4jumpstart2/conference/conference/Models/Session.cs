@@ -18,5 +18,6 @@ namespace conference.Models
         
         // like, "Session has Speaker" (one? yeah)
         public virtual Speaker Speaker { get; set; }
+        public virtual List<Comment> Comments { get; set; }
     }
 }

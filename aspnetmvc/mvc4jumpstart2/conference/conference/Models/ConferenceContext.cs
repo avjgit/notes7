@@ -10,5 +10,6 @@ namespace conference.Models
     {
         public DbSet<Session> Sessions { get; set; }
         public DbSet<Speaker> Speakers { get; set; }
+        public DbSet<Comment> Comments { get; set; }
     }
 }
