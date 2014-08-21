@@ -34,3 +34,5 @@
     @Html.ActionLink("Edit", "Edit", new { id=Model.SessionId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+@Html.Action("_GetForSession", "Comment", new { SessionId = Model.SessionId })
