@@ -1,10 +1,17 @@
 ﻿@model IEnumerable<conference.Models.Comment>
 
 <div id="comments">
+    <h4>List of comments:</h4>
     <ul>
         @foreach (var comment in Model)
         {
-            <li>comment.Content</li>
+            <li>@comment.Content</li>
         }
     </ul>
+    <h4>Add new one:</h4>
+    @using (Html.BeginForm("_Submit", "Comment", FormMethod.Post)) 
+    {
+        @Html.AntiForgeryToken();
+        @Html.Action("_CommentForm", new { SessionId = ViewBag.SessionId })
+    }
 </div>

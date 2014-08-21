@@ -1,0 +1,9 @@
+﻿@model conference.Models.Comment
+
+@Html.HiddenFor(m => m.SessionId)
+
+<div>
+    @Html.LabelFor(m => m.Content)
+    @Html.EditorFor(m => m.Content)
+</div>
+<button type="submit">Submit Comment</button>

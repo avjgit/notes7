@@ -24,7 +24,7 @@ namespace conference.Controllers
         public PartialViewResult _CommentForm(int sessionId)
         {
             Comment comment = new Comment() { SessionId = sessionId };
-            return PartialView("_CommentFrom", comment);
+            return PartialView("_CommentForm", comment);
         }
 
         [ValidateAntiForgeryToken]
@@ -34,7 +34,7 @@ namespace conference.Controllers
             db.SaveChanges();
             List<Comment> comments = db.Comments.Where(c => c.SessionId == comment.SessionId).ToList();
             ViewBag.SessionId = comment.SessionId;
-            return PartialView("_GetForSesion", comments);
+            return PartialView("_GetForSession", comments);
         }
 
     }
