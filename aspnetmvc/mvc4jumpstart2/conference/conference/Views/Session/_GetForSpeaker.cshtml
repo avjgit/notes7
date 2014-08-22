@@ -1,0 +1,8 @@
+﻿@model IEnumerable<conference.Models.Session>   
+
+<ul>
+    @foreach (var session in Model)
+    {
+        <li>@session.Title</li>    
+    }
+</ul>

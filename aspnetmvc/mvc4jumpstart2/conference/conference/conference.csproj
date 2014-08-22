@@ -326,6 +326,7 @@
     <Content Include="Views\Session\Delete.cshtml" />
     <Content Include="Views\Comment\_GetForSession.cshtml" />
     <Content Include="Views\Comment\_CommentForm.cshtml" />
+    <Content Include="Views\Session\_GetForSpeaker.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

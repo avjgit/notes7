@@ -124,5 +124,12 @@ namespace conference.Controllers
             db.Dispose();
             base.Dispose(disposing);
         }
+
+        public PartialViewResult _GetForSpeaker(int speakerId)
+        {
+            List<Session> sessions = db.Sessions.Where(s => s.SpeakerId == speakerId).ToList();
+            return PartialView("_GetForSpeaker", sessions);
+        }
+
     }
 }
