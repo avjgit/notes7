@@ -9,31 +9,11 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EmailAddres)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmailAddres)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SpeakerId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SpeakerId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SpeakerId })
-        </td>
-    </tr>
+@foreach (var speaker in Model)
+{
+    <h3>@speaker.Name</h3>
+    @Html.Action("_GetForSpeaker", "Session", new { SpeakerId = speaker.SpeakerId })
 }
 
-</table>
+
