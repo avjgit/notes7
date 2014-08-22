@@ -9,7 +9,9 @@
         }
     </ul>
     <h4>Add new one:</h4>
-    @using (Html.BeginForm("_Submit", "Comment", FormMethod.Post)) 
+
+    @*@using (Html.BeginForm("_Submit", "Comment", FormMethod.Post))*@
+    @using (Ajax.BeginForm("_Submit", "Comment", new AjaxOptions() { UpdateTargetId = "comments" }))
     {
         @Html.AntiForgeryToken();
         @Html.Action("_CommentForm", new { SessionId = ViewBag.SessionId })
