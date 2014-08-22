@@ -4,16 +4,25 @@
     ViewBag.Title = "Index";
 }
 
+<script>
+    $(function () { // this is shortcut for document.ready
+        $("#speakers").accordion();
+    });
+</script>
+
+
 <h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 
-@foreach (var speaker in Model)
-{
-    <h3>@speaker.Name</h3>
-    @Html.Action("_GetForSpeaker", "Session", new { SpeakerId = speaker.SpeakerId })
-}
+<div id="speakers">
+    @foreach (var speaker in Model)
+    {
+        <h3>@speaker.Name</h3>
+        @Html.Action("_GetForSpeaker", "Session", new { SpeakerId = speaker.SpeakerId })
+    }
+</div>
 
 
