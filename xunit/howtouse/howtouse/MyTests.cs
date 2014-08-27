@@ -16,6 +16,8 @@ namespace howtouse
             double result = DivideNumbers(5, 0);
             Assert.Equal(double.PositiveInfinity, result);
         }
+
+        [Fact]
         public void DivideByZeroThrowsException()
         {
             Assert.Throws<System.DivideByZeroException>(
@@ -23,6 +25,12 @@ namespace howtouse
                 {
                     DivideNumbers(5, 0);
                 });
+        }
+
+        [Fact(Timeout=40)]
+        public void LongRunningTest()
+        {
+            System.Threading.Thread.Sleep(50);
         }
 
         public int DivideNumbers(int top, int bottom)
