@@ -10,12 +10,12 @@ namespace howtouse
             Assert.Equal(4, 2 + 2);
         }
 
-        [Fact]
-        //public void BadMethod()
-        //{
-        //    double result = DivideNumbers(5, 0);
-        //    Assert.Equal(double.PositiveInfinity, result);
-        //}
+        [Fact(Skip="Example of wrong test. Use one with expected excetion.")]
+        public void Badmethod()
+        {
+            double result = DivideNumbers(5, 0);
+            Assert.Equal(double.PositiveInfinity, result);
+        }
         public void DivideByZeroThrowsException()
         {
             Assert.Throws<System.DivideByZeroException>(
